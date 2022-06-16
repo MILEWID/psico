@@ -17,7 +17,6 @@ public class asistenteEntity {
         @Column(unique = true, nullable = false)
 	
     	private Long idasistente;
-    	private Long idtipo;
     	private Long ocupacion;
     	private Long especialidad;
     	private Long tipo_usuario;
@@ -26,12 +25,6 @@ public class asistenteEntity {
 		}
 		public void setIdasistente(Long idasistente) {
 			this.idasistente = idasistente;
-		}
-		public Long getIdtipo() {
-			return idtipo;
-		}
-		public void setIdtipo(Long idtipo) {
-			this.idtipo = idtipo;
 		}
 		public Long getOcupacion() {
 			return ocupacion;

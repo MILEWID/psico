@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PsicoApplication {
 
-	//comentario
 	public static void main(String[] args) {
+		
+		//comentarios 
 		SpringApplication.run(PsicoApplication.class, args);
 	}
 

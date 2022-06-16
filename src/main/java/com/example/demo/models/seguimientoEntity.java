@@ -58,25 +58,14 @@ public class seguimientoEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-<<<<<<< HEAD
-=======
-
-    public historia_clinicaEntity getHiscli() {
-        return hiscli;
-    }
->>>>>>> 0610fe3b22102befb52b2f386fdc1347022ac71f
-
-    
 
     public historia_clinicaEntity getHistcli() {
         return histcli;
-
-      
     }
-<<<<<<< HEAD
-        
-        
-=======
-       
->>>>>>> 0610fe3b22102befb52b2f386fdc1347022ac71f
+
+    public void setHistcli(historia_clinicaEntity histcli) {
+        this.histcli = histcli;
+    }
+
+
 }

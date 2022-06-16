@@ -1,5 +1,25 @@
 package com.example.demo.service;
 
-public class citaMedicaService {
+import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.models.CitaMedicaEntity;
+import com.example.demo.repository.citaMedicaRepository;
+
+@Service
+
+public class citaMedicaService {
+	@Autowired
+
+	citaMedicaRepository citaMedicaRepository;
+	
+	public ArrayList<CitaMedicaEntity> obtenerCitaMedica(){
+		return (ArrayList<CitaMedicaEntity>)citaMedicaRepository.findAll();
+	}
+	
+	public CitaMedicaEntity guardarCitaMedica(CitaMedicaEntity citaMedica) {
+		return citaMedicaRepository.save(citaMedica);
+	}
 }

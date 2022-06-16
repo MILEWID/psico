@@ -59,14 +59,15 @@ public class seguimientoEntity {
         this.descripcion = descripcion;
     }
 
-    public historia_clinicaEntity getHiscli() {
-        return hiscli;
+    public historia_clinicaEntity getHistcli() {
+        return histcli;
     }
 
-    public void setHiscli(historia_clinicaEntity hiscli) {
-        this.hiscli = hiscli;
+    public void setHistcli(historia_clinicaEntity histcli) {
+        this.histcli = histcli;
     }
-        
+
+    
         
         
         

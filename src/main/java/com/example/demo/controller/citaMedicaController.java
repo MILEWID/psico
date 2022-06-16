@@ -41,9 +41,9 @@ public class citaMedicaController {
 	public String eliminarPorId(@PathVariable("id")Long id) {
 		boolean ok=this.citaMedicaService.eliminarCitaMedica(id);
 		if (ok) {
-			return "Se eliminó el usuario con id "+id;
+			return "Se eliminó la cita médica con id "+id;
 		}else {
-			return "No se pudo eliminar el usuario con id "+id;
+			return "No se pudo eliminar la cita médica con id "+id;
 		}
 	}
 }

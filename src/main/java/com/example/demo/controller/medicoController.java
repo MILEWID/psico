@@ -4,8 +4,8 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.models.pacienteEntity;
-import com.example.demo.service.pacienteService;
+import com.example.demo.models.medicoEntity;
+import com.example.demo.service.medicoService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,33 +18,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ *
+ * @author Usuario
+ */
 @RestController
-@RequestMapping("/paciente")
-public class pacienteController {
+@RequestMapping("/medico")
+public class medicoController {
     @Autowired
-	pacienteService paciente ;
+	medicoService med ;
 	
 	@GetMapping()
-	public ArrayList<pacienteEntity> obtenerPaciente(){
-		return paciente.obtenerPaciente();
+	public ArrayList<medicoEntity> obtenerMedico(){
+		return med.obtenerMedico();
 	}
 	
 	@PostMapping()
-		public pacienteEntity guardarPaciente(@RequestBody pacienteEntity paciente) {
-			return this.paciente.guardarPaciente(paciente);
+		public medicoEntity guardarMedico(@RequestBody medicoEntity medico) {
+			return this.med.guardarMedico(medico);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarPaciente(@PathVariable("id") Long id){
-                      boolean ok = this.paciente.eliminarPaciente(id);
+                  public String eliminarMedico(@PathVariable("id") Long id){
+                      boolean ok = this.med.eliminarMedico(id);
             if(ok){
-                return "Los datos del paciente fueron eliminados correctamente ";
+                return "Los datos del médico se eliminaron correctamente ";
             }
             else{
-                return "Los datos del paciente " + id +" no se eliminaron correctamente ";
+                return "Los datos del médico " + id +" no se eliminaron correctamente ";
             }
         }
         @GetMapping(path ="/{id}")
-	 public Optional<pacienteEntity> obtenerPorId(@PathVariable("id") Long id) {
-		return this.paciente.obtenerPorId(id);
+	 public Optional<medicoEntity> obtenerPorId(@PathVariable("id") Long id) {
+		return this.med.obtenerPorId(id);
 	}
 }

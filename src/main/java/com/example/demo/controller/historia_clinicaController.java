@@ -44,7 +44,7 @@ public class historia_clinicaController {
                 return "La historia se elimino correctamente ";
             }
             else{
-                return "La historia " + id + "no se pudo eliminar correctamente ";
+                return "La historia " + id + " no se pudo eliminar correctamente ";
             }
         }
         @GetMapping(path ="/{id}")

@@ -45,7 +45,7 @@ public class conflictoController {
                 return "El conflicto fue eliminado correctamente ";
             }
             else{
-                return "El conflicto no se elimino correctamente "+id;
+                return "El conflicto " + id + " no se elimino correctamente ";
             }
         }
         @GetMapping(path ="/{id}")

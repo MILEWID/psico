@@ -8,7 +8,6 @@ public class PsicoApplication {
 
 	public static void main(String[] args) {
 		
-		//comentarios 
 		SpringApplication.run(PsicoApplication.class, args);
 	}
 

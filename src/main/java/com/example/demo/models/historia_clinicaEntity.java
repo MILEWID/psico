@@ -4,6 +4,7 @@
  */
 package com.example.demo.models;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -26,7 +27,12 @@ public class historia_clinicaEntity {
     private Date fecha = new Date();
     private Long tratamiento;
     private String atencionprevia;
-    private Long seguimiento;
+    
+    @OneToMany(mappedBy = "histcli")
+        private List<seguimientoEntity>  seguimiento;
+
+    public historia_clinicaEntity() {
+    }
 
     public Long getIdHistoriaClinica() {
         return idHistoriaClinica;
@@ -92,13 +98,14 @@ public class historia_clinicaEntity {
         this.atencionprevia = atencionprevia;
     }
 
-    public Long getSeguimiento() {
+    public List<seguimientoEntity> getSeguimiento() {
         return seguimiento;
     }
 
-    public void setSeguimiento(Long seguimiento) {
+    public void setSeguimiento(List<seguimientoEntity> seguimiento) {
         this.seguimiento = seguimiento;
     }
+
     
     
 }

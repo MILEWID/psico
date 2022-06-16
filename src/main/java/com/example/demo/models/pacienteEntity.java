@@ -20,7 +20,7 @@ public class pacienteEntity {
     @Column(unique = true, nullable = false)
     private Long idPaciente;
     private Long idHistoria_Clinica;
-    private String ocupacion;
+    private Long ocupacion;
     private Long tipo_usuario;
     private Long cita_medica;
     private String telefono;
@@ -44,11 +44,11 @@ public class pacienteEntity {
         this.idHistoria_Clinica = idHistoria_Clinica;
     }
 
-    public String getOcupacion() {
+    public Long getOcupacion() {
         return ocupacion;
     }
 
-    public void setOcupacion(String ocupacion) {
+    public void setOcupacion(Long ocupacion) {
         this.ocupacion = ocupacion;
     }
 

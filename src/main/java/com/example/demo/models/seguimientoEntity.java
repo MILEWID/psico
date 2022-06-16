@@ -58,7 +58,7 @@ public class seguimientoEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+/*
     public historia_clinicaEntity getHiscli() {
         return hiscli;
     }
@@ -66,7 +66,7 @@ public class seguimientoEntity {
     public void setHiscli(historia_clinicaEntity hiscli) {
         this.hiscli = hiscli;
     }
-        
+    */    
         
         
         

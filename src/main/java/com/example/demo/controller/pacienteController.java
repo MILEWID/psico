@@ -4,8 +4,8 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.models.conflictoEntity;
-import com.example.demo.service.conflictoService;
+import com.example.demo.models.pacienteEntity;
+import com.example.demo.service.pacienteService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,38 +18,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author Usuario
- */
-
 @RestController
-@RequestMapping("/conflicto")
-public class conflictoController {
+@RequestMapping("/paciente")
+public class pacienteController {
     @Autowired
-	conflictoService conflicto ;
+	pacienteService paciente ;
 	
 	@GetMapping()
-	public ArrayList<conflictoEntity> obtenerConflicto(){
-		return conflicto.obtenerConflicto();
+	public ArrayList<pacienteEntity> obtenerPaciente(){
+		return paciente.obtenerPaciente();
 	}
 	
 	@PostMapping()
-		public conflictoEntity guardarConflicto(@RequestBody conflictoEntity conflicto) {
-			return this.conflicto.guardarConflicto(conflicto);
+		public pacienteEntity guardarPaciente(@RequestBody pacienteEntity paciente) {
+			return this.paciente.guardarPaciente(paciente);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarConflicto(@PathVariable("id") Long id){
-                      boolean ok = this.conflicto.eliminarConflicto(id);
+                  public String eliminarPaciente(@PathVariable("id") Long id){
+                      boolean ok = this.paciente.eliminarPaciente(id);
             if(ok){
-                return "El conflicto fue eliminado correctamente ";
+                return "Los datos del paciente fueron eliminados correctamente ";
             }
             else{
-                return "El conflicto no se elimino correctamente "+id;
+                return "Los datos del paciente" + id +" no se eliminaron correctamente ";
             }
         }
         @GetMapping(path ="/{id}")
-	 public Optional<conflictoEntity> obtenerPorId(@PathVariable("id") Long id) {
-		return this.conflicto.obtenerPorId(id);
+	 public Optional<pacienteEntity> obtenerPorId(@PathVariable("id") Long id) {
+		return this.paciente.obtenerPorId(id);
 	}
 }

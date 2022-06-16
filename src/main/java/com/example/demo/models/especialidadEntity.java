@@ -16,10 +16,21 @@ public class especialidadEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
         @Column(unique = true, nullable = false)
 	private Long id;
-	
 	private String descripcion;
+	
+    @ManyToOne
+    @JoinColumn(name = "id_asist")
+    private asistenteEntity asist;
 
-    public Long getId() {
+    public asistenteEntity getAsist() {
+		return asist;
+	}
+
+	public void setAsist(asistenteEntity asist) {
+		this.asist = asist;
+	}
+
+	public Long getId() {
         return id;
     }
 

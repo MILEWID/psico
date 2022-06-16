@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.example.demo.models;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -18,8 +20,17 @@ public class asistenteEntity {
 	
     	private Long idasistente;
     	private Long ocupacion;
-    	private Long especialidad;
-    	private Long tipo_usuario;
+    	public List<especialidadEntity> getEspecialidad() {
+			return especialidad;
+		}
+		public void setEspecialidad(List<especialidadEntity> especialidad) {
+			this.especialidad = especialidad;
+		}
+		private Long tipo_usuario;
+    	
+    	 @OneToMany(mappedBy = "asist")
+    	 private List<especialidadEntity>  especialidad;
+    	
 		public Long getIdasistente() {
 			return idasistente;
 		}
@@ -32,12 +43,7 @@ public class asistenteEntity {
 		public void setOcupacion(Long ocupacion) {
 			this.ocupacion = ocupacion;
 		}
-		public Long getEspecialidad() {
-			return especialidad;
-		}
-		public void setEspecialidad(Long especialidad) {
-			this.especialidad = especialidad;
-		}
+
 		public Long getTipo_usuario() {
 			return tipo_usuario;
 		}

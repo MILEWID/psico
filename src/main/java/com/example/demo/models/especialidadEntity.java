@@ -36,3 +36,5 @@ public class especialidadEntity {
     }
         
 }
+
+//me quiero morir

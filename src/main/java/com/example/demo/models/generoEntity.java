@@ -14,29 +14,20 @@ public class generoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
     private Long idGenero;
-    private String idPersona;
     private String descripcion;
 
     public Long getIdGenero() {
         return idGenero;
-    }   
-        
+    }
+
     public void setIdGenero(Long idGenero) {
         this.idGenero = idGenero;
     }
 
-    public String getIdPersona() {
-        return idPersona;
-    }   
-        
-    public void setIdPersona(String idPersona) {
-        this.idPersona = idPersona;
-    }
-    
     public String getDescripcion() {
         return descripcion;
-    }   
-        
+    }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }

@@ -26,7 +26,7 @@ public class generoController {
 	}
 	
 	@PostMapping()
-		public generoEntity guardarEspecialidad(@RequestBody generoEntity genero) {
+		public generoEntity guardarGenero(@RequestBody generoEntity genero) {
 			return this.espSer.guardarGenero(genero);
 	}
         @DeleteMapping(path ="/{id}")

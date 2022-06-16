@@ -99,7 +99,4 @@ public class pacienteEntity {
     public void setConflicto(Long conflicto) {
         this.conflicto = conflicto;
     }
-    
-    
-    
 }

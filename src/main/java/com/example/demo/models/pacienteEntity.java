@@ -35,8 +35,7 @@ public class pacienteEntity {
         private conflictoEntity conflicto;
     
     @OneToMany(mappedBy = "paciente")
-    private ocupacionEntity ocupacion;
-
+    private List<ocupacionEntity> ocupacion;
 
     public Long getIdPaciente() {
         return idPaciente;
@@ -46,23 +45,7 @@ public class pacienteEntity {
         this.idPaciente = idPaciente;
     }
 
-    public historia_clinicaEntity getIdHistoria_Clinica() {
-        return idHistoria_Clinica;
-    }
-
-    public void setIdHistoria_Clinica(historia_clinicaEntity idHistoria_Clinica) {
-        this.idHistoria_Clinica = idHistoria_Clinica;
-    }
-
-    public ocupacionEntity getOcupacion() {
-		return ocupacion;
-	}
-
-	public void setOcupacion(ocupacionEntity ocupacion) {
-		this.ocupacion = ocupacion;
-	}
-
-	public Long getTipo_usuario() {
+    public Long getTipo_usuario() {
         return tipo_usuario;
     }
 
@@ -102,6 +85,14 @@ public class pacienteEntity {
         this.trastorno = trastorno;
     }
 
+    public historia_clinicaEntity getIdHistoria_Clinica() {
+        return idHistoria_Clinica;
+    }
+
+    public void setIdHistoria_Clinica(historia_clinicaEntity idHistoria_Clinica) {
+        this.idHistoria_Clinica = idHistoria_Clinica;
+    }
+
     public conflictoEntity getConflicto() {
         return conflicto;
     }
@@ -109,4 +100,15 @@ public class pacienteEntity {
     public void setConflicto(conflictoEntity conflicto) {
         this.conflicto = conflicto;
     }
+
+    public List<ocupacionEntity> getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(List<ocupacionEntity> ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+
+    
 }

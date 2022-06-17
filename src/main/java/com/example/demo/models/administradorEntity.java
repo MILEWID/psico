@@ -15,38 +15,28 @@ public class administradorEntity {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(unique = true, nullable = false)
 	    private Long idAdministrador;
-	 	
-	 @OneToOne
-	    @JoinColumn(name = "admin")
-	    private administradorEntity admin;
-		 
-		 @OneToOne(mappedBy = "admini")
-		 private List<tipousuarioEntity>  tipo_usuario;
+	 		 
+    @OneToOne(mappedBy = "administrador")
+    private tipousuarioEntity tipousuario;
 
-		public Long getIdAdministrador() {
-			return idAdministrador;
-		}
+    public Long getIdAdministrador() {
+        return idAdministrador;
+    }
 
-		public void setIdAdministrador(Long idAdministrador) {
-			this.idAdministrador = idAdministrador;
-		}
+    public void setIdAdministrador(Long idAdministrador) {
+        this.idAdministrador = idAdministrador;
+    }
 
-		public administradorEntity getAdmin() {
-			return admin;
-		}
+    public tipousuarioEntity getTipousuario() {
+        return tipousuario;
+    }
 
-		public void setAdmin(administradorEntity admin) {
-			this.admin = admin;
-		}
+    public void setTipousuario(tipousuarioEntity tipousuario) {
+        this.tipousuario = tipousuario;
+    }
 
-		public List<tipousuarioEntity> getTipo_usuario() {
-			return tipo_usuario;
-		}
-
-		public void setTipo_usuario(List<tipousuarioEntity> tipo_usuario) {
-			this.tipo_usuario = tipo_usuario;
-		}
-		 
-		
+   
+ 
+   
 
 }

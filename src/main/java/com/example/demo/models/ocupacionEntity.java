@@ -20,19 +20,12 @@ public class ocupacionEntity {
 	private Long idocupacion;
 	private String descripcion;
 	
-	 @OneToOne
-	 @JoinColumn(name = "asiste")
-	 private List<asistenteEntity>  asiste;
+	@OneToOne(mappedBy = "ocupa")
+    private asistenteEntity  asiste;
 	 
 	 @OneToOne(mappedBy = "admin")
      private administradorEntity  admin;
 	 
-	 public List<pacienteEntity> getPaciente() {
-		return paciente;
-	}
-	public void setPaciente(List<pacienteEntity> paciente) {
-		this.paciente = paciente;
-	}
 	@ManyToOne
 	 @JoinColumn(name = "pacie")
 	 private List<pacienteEntity> paciente;
@@ -40,27 +33,44 @@ public class ocupacionEntity {
 	public Long getIdocupacion() {
 		return idocupacion;
 	}
+
 	public void setIdocupacion(Long idocupacion) {
 		this.idocupacion = idocupacion;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public List<asistenteEntity> getAsiste() {
+
+	public asistenteEntity getAsiste() {
 		return asiste;
 	}
-	public void setAsiste(List<asistenteEntity> asiste) {
+
+	public void setAsiste(asistenteEntity asiste) {
 		this.asiste = asiste;
 	}
+
 	public administradorEntity getAdmin() {
 		return admin;
 	}
+
 	public void setAdmin(administradorEntity admin) {
 		this.admin = admin;
 	}
+
+	public List<pacienteEntity> getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(List<pacienteEntity> paciente) {
+		this.paciente = paciente;
+	}
+
+	
 	
 	
 }

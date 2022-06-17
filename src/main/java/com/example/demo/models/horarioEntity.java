@@ -28,11 +28,11 @@ public class horarioEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "fecha")
-	private Date fecha = new Date();
+	private CitaMedicaEntity fecha;
 	
 	@ManyToOne
 	@JoinColumn(name = "hora")
-	private String hora;
+	private CitaMedicaEntity hora;
 	
 	@OneToOne(mappedBy="id")	
 	private CitaMedicaEntity  citaMedica;
@@ -47,19 +47,20 @@ public class horarioEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getFecha() {
+	
+	
+	public CitaMedicaEntity getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(CitaMedicaEntity fecha) {
 		this.fecha = fecha;
 	}
-	public String getHora() {
+	public CitaMedicaEntity getHora() {
 		return hora;
 	}
-	public void setHora(String hora) {
+	public void setHora(CitaMedicaEntity hora) {
 		this.hora = hora;
 	}
-	
 	public CitaMedicaEntity getCitaMedica() {
 		return citaMedica;
 	}

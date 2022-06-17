@@ -22,7 +22,7 @@ public class alergiaEntity {
 	
 	@ManyToOne
     @JoinColumn(name="idPaciente")
-	private Long idPaciente;
+	private pacienteEntity paciente;
 	
 	
 	private String descripcion;
@@ -33,11 +33,12 @@ public class alergiaEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getIdPaciente() {
-		return idPaciente;
+	
+	public pacienteEntity getPaciente() {
+		return paciente;
 	}
-	public void setIdPaciente(Long idPaciente) {
-		this.idPaciente = idPaciente;
+	public void setPaciente(pacienteEntity paciente) {
+		this.paciente = paciente;
 	}
 	public String getDescripcion() {
 		return descripcion;

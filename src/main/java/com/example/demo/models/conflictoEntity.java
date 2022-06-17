@@ -19,9 +19,9 @@ public class conflictoEntity {
     private Long idConflicto;
     private String descripcion;
     
-    @OneToOne
-    @JoinColumn(name = "idPaciente")
-    private pacienteEntity idPaciente;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paciente_id", referencedColumnName = "idPaciente")
+        private pacienteEntity  idPaciente;
 
     public Long getIdConflicto() {
         return idConflicto;

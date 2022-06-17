@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="cita_medica")
@@ -22,10 +23,11 @@ public class CitaMedicaEntity {
 	private int idPaciente;
 	
 	@OneToMany(mappedBy="fecha")
-	private Date fecha;
+	private List<horarioEntity>  fecha;
+
 	
 	@OneToMany(mappedBy="hora")
-	private String hora;
+	private List<horarioEntity>  hora;
 	
 	
 	public Long getId() {
@@ -47,16 +49,18 @@ public class CitaMedicaEntity {
 		this.idPaciente = idPaciente;
 	}
 	public Date getFecha() {
-		return fecha;
-	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-	public String getHora() {
+        return (Date) fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = (List<horarioEntity>) fecha;
+    }
+	public List<horarioEntity> getHora() {
 		return hora;
 	}
-	public void setHora(String hora) {
+	public void setHora(List<horarioEntity> hora) {
 		this.hora = hora;
 	}
+	
 	
 }

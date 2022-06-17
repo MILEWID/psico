@@ -20,16 +20,22 @@ public class historia_clinicaEntity {
     @Column(unique = true, nullable = false)
     
     private Long idHistoriaClinica;
-    private Long idPaciente;
-    private Long idMedico;
     private String medico;
     private String paciente;
-    private Date fecha = new Date();
-    private Long tratamiento;
+    private Date fecha = new Date();;
     private String atencionprevia;
     
     @OneToMany(mappedBy = "histcli")
         private List<seguimientoEntity>  seguimiento;
+    
+    @OneToOne(mappedBy = "idHistoria_Clinica")
+        private pacienteEntity  idPaciente;
+    
+    @OneToOne(mappedBy = "idMedico")
+        private medicoEntity idMedico;
+    
+    @OneToMany(mappedBy = "id")
+        private List<tratamientoEntity>  tratamiento;
 
     public historia_clinicaEntity() {
     }
@@ -42,19 +48,19 @@ public class historia_clinicaEntity {
         this.idHistoriaClinica = idHistoriaClinica;
     }
 
-    public Long getIdPaciente() {
+    public pacienteEntity getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Long idPaciente) {
+    public void setIdPaciente(pacienteEntity idPaciente) {
         this.idPaciente = idPaciente;
     }
 
-    public Long getIdMedico() {
+    public medicoEntity getIdMedico() {
         return idMedico;
     }
 
-    public void setIdMedico(Long idMedico) {
+    public void setIdMedico(medicoEntity idMedico) {
         this.idMedico = idMedico;
     }
 
@@ -82,11 +88,11 @@ public class historia_clinicaEntity {
         this.fecha = fecha;
     }
 
-    public Long getTratamiento() {
+    public List<tratamientoEntity> getTratamiento() {
         return tratamiento;
     }
 
-    public void setTratamiento(Long tratamiento) {
+    public void setTratamiento(List<tratamientoEntity> tratamiento) {
         this.tratamiento = tratamiento;
     }
 

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,12 +15,48 @@ import javax.persistence.Table;
 
 public class tratamientoEntity {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
+    private Long id;
+    private Long idHistoriaClinica;
+    private String descripcion;
 
-	private Long id;
-	private Long idHistoriaClinica;
-	private Long idPaciente;
-	private String descripcion;
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
+    private historia_clinicaEntity idPaciente;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdHistoriaClinica() {
+        return idHistoriaClinica;
+    }
+
+    public void setIdHistoriaClinica(Long idHistoriaClinica) {
+        this.idHistoriaClinica = idHistoriaClinica;
+    }
+
+    public historia_clinicaEntity getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(historia_clinicaEntity idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+        
+        
 }

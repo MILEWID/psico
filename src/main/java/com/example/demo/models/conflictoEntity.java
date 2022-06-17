@@ -17,8 +17,11 @@ public class conflictoEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private Long idConflicto;
-    private int idPaciente;
     private String descripcion;
+    
+    @OneToOne
+    @JoinColumn(name = "idPaciente")
+    private pacienteEntity idPaciente;
 
     public Long getIdConflicto() {
         return idConflicto;
@@ -28,11 +31,11 @@ public class conflictoEntity {
         this.idConflicto = idConflicto;
     }
 
-    public int getIdPaciente() {
+    public pacienteEntity getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(int idPaciente) {
+    public void setIdPaciente(pacienteEntity idPaciente) {
         this.idPaciente = idPaciente;
     }
 

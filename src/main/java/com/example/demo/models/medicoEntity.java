@@ -20,6 +20,9 @@ public class medicoEntity {
     private Long especialidad;
     private Long tipo_usuario;
 
+    
+    
+    
     public Long getIdMedico() {
         return idMedico;
     }

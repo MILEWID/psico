@@ -4,6 +4,7 @@
  */
 package com.example.demo.models;
 
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -19,14 +20,20 @@ public class pacienteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idPaciente;
-    private Long idHistoria_Clinica;
     private Long ocupacion;
     private Long tipo_usuario;
     private Long cita_medica;
     private String telefono;
     private Long alergia;
     private Long trastorno;
-    private Long conflicto;
+    
+    @OneToOne
+    @JoinColumn(name = "idHistoriacli")
+    private historia_clinicaEntity idHistoria_Clinica;
+    
+    @OneToOne(mappedBy = "idMedico")
+        private conflictoEntity conflicto;
+    
 
     public Long getIdPaciente() {
         return idPaciente;
@@ -36,11 +43,11 @@ public class pacienteEntity {
         this.idPaciente = idPaciente;
     }
 
-    public Long getIdHistoria_Clinica() {
+    public historia_clinicaEntity getIdHistoria_Clinica() {
         return idHistoria_Clinica;
     }
 
-    public void setIdHistoria_Clinica(Long idHistoria_Clinica) {
+    public void setIdHistoria_Clinica(historia_clinicaEntity idHistoria_Clinica) {
         this.idHistoria_Clinica = idHistoria_Clinica;
     }
 
@@ -92,11 +99,11 @@ public class pacienteEntity {
         this.trastorno = trastorno;
     }
 
-    public Long getConflicto() {
+    public conflictoEntity getConflicto() {
         return conflicto;
     }
 
-    public void setConflicto(Long conflicto) {
+    public void setConflicto(conflictoEntity conflicto) {
         this.conflicto = conflicto;
     }
 }

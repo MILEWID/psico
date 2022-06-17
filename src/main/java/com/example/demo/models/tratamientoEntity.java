@@ -22,7 +22,7 @@ public class tratamientoEntity {
     
     @ManyToOne
     @JoinColumn(name="idHistoriaClinica")
-    private Long idHistoriaClinica;
+    private historia_clinicaEntity idHistoriaClinica;
     
     private String descripcion;
 
@@ -38,15 +38,17 @@ public class tratamientoEntity {
         this.id = id;
     }
 
-    public Long getIdHistoriaClinica() {
-        return idHistoriaClinica;
-    }
+   
 
-    public void setIdHistoriaClinica(Long idHistoriaClinica) {
-        this.idHistoriaClinica = idHistoriaClinica;
-    }
+    public historia_clinicaEntity getIdHistoriaClinica() {
+		return idHistoriaClinica;
+	}
 
-    public historia_clinicaEntity getIdPaciente() {
+	public void setIdHistoriaClinica(historia_clinicaEntity idHistoriaClinica) {
+		this.idHistoriaClinica = idHistoriaClinica;
+	}
+
+	public historia_clinicaEntity getIdPaciente() {
         return idPaciente;
     }
 

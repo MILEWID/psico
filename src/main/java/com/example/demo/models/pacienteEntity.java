@@ -27,8 +27,7 @@ public class pacienteEntity {
     private Long alergia;
     private Long trastorno;
     
-    @OneToOne
-    @JoinColumn(name = "idHistoriacli")
+    @OneToOne(mappedBy = "paciente")
     private historia_clinicaEntity idHistoria_Clinica;
     
     @OneToOne(mappedBy = "idMedico")

@@ -24,6 +24,18 @@ public class tipousuarioEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "administrador_id", referencedColumnName = "idAdministrador")
     private administradorEntity administrador;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "asistente_id", referencedColumnName = "idAsistente")
+    private asistenteEntity asistente;
+
+    public asistenteEntity getAsistente() {
+        return asistente;
+    }
+
+    public void setAsistente(asistenteEntity asistente) {
+        this.asistente = asistente;
+    }
 
     public Long getIdTipo() {
         return idTipo;

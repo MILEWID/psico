@@ -16,11 +16,11 @@ public class CitaMedicaEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "idMedico")
-	private int idMedico;
+	private medicoEntity medico;
 	
 	@ManyToOne
 	@JoinColumn(name = "idPaciente")
-	private int idPaciente;
+	private pacienteEntity paciente;
 	
 	@OneToMany(mappedBy="fecha")
 	private List<horarioEntity>  fecha;
@@ -36,25 +36,25 @@ public class CitaMedicaEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getIdMedico() {
-		return idMedico;
+	
+	public medicoEntity getMedico() {
+		return medico;
 	}
-	public void setIdMedico(int idMedico) {
-		this.idMedico = idMedico;
+	public void setMedico(medicoEntity medico) {
+		this.medico = medico;
 	}
-	public int getIdPaciente() {
-		return idPaciente;
+	public pacienteEntity getPaciente() {
+		return paciente;
 	}
-	public void setIdPaciente(char idPaciente) {
-		this.idPaciente = idPaciente;
+	public void setPaciente(pacienteEntity paciente) {
+		this.paciente = paciente;
 	}
-	public Date getFecha() {
-        return (Date) fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = (List<horarioEntity>) fecha;
-    }
+	public List<horarioEntity> getFecha() {
+		return fecha;
+	}
+	public void setFecha(List<horarioEntity> fecha) {
+		this.fecha = fecha;
+	}
 	public List<horarioEntity> getHora() {
 		return hora;
 	}

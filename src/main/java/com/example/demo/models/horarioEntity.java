@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import java.util.Date;
 
+import com.example.demo.models.CitaMedicaEntity;
+
 @Entity
 @Table(name="horario")
 
@@ -33,10 +35,10 @@ public class horarioEntity {
 	private String hora;
 	
 	@OneToOne(mappedBy="id")	
-	private Long idCita;
+	private CitaMedicaEntity  citaMedica;
 	
 	@OneToOne(mappedBy="idMedico")
-	private Long idMedico;
+	private medicoEntity medico;
 	
 	private Long idEstado;
 	public Long getId() {
@@ -57,17 +59,18 @@ public class horarioEntity {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	public Long getIdCita() {
-		return idCita;
+	
+	public CitaMedicaEntity getCitaMedica() {
+		return citaMedica;
 	}
-	public void setIdCita(Long idCita) {
-		this.idCita = idCita;
+	public void setCitaMedica(CitaMedicaEntity citaMedica) {
+		this.citaMedica = citaMedica;
 	}
-	public Long getIdMedico() {
-		return idMedico;
+	public medicoEntity getMedico() {
+		return medico;
 	}
-	public void setIdMedico(Long idMedico) {
-		this.idMedico = idMedico;
+	public void setMedico(medicoEntity medico) {
+		this.medico = medico;
 	}
 	public Long getIdEstado() {
 		return idEstado;

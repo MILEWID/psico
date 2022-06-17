@@ -22,7 +22,7 @@ public class historia_clinicaEntity {
     private Long idHistoriaClinica;
     private String medico;
     private String paciente;
-    private Date fecha = new Date();;
+    private Date fecha = new Date();
     private String atencionprevia;
     
     @OneToMany(mappedBy = "histcli")

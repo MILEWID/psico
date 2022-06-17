@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import java.util.Date;
 
 @Entity
 @Table(name="horario")
@@ -18,10 +21,15 @@ public class horarioEntity {
 	
 	
 	private Long id;
-	private String fecha;
+	private Date fecha = new Date();
 	private String hora;
+	
+	@OneToOne(mappedBy="id")	
 	private Long idCita;
+	
+	@OneToOne(mappedBy="idMedico")
 	private Long idMedico;
+	
 	private Long idEstado;
 	public Long getId() {
 		return id;
@@ -29,10 +37,10 @@ public class horarioEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	public String getHora() {

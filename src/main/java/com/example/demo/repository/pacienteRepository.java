@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author Usuario
  */
+@Repository
 public interface pacienteRepository extends CrudRepository<pacienteEntity , Long> {
     
 }

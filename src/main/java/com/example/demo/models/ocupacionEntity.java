@@ -8,6 +8,7 @@
 package com.example.demo.models;
 import java.util.List;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -19,11 +20,23 @@ public class ocupacionEntity {
 	private Long idocupacion;
 	private String descripcion;
 	
-	 @OneToOne(mappedBy = "asiste")
+	 @OneToOne
+	 @JoinColumn(name = "asiste")
 	 private List<asistenteEntity>  asiste;
 	 
-	 @OneToOne(mappedBy = "admin")
-	 private List<administradorEntity> administrador ;
+	 @OneToOne
+	 @JoinColumn(name = "admin")
+	 private List<administradorEntity> administrador;
+	 
+	 public List<pacienteEntity> getPaciente() {
+		return paciente;
+	}
+	public void setPaciente(List<pacienteEntity> paciente) {
+		this.paciente = paciente;
+	}
+	@ManyToOne
+	 @JoinColumn(name = "pacie")
+	 private List<pacienteEntity> paciente;
 	 
 	public List<administradorEntity> getAdministrador() {
 		return administrador;

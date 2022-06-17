@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 import com.example.demo.models.CitaMedicaEntity;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table(name="horario")
@@ -24,61 +25,53 @@ public class horarioEntity {
     @Column(unique = true, nullable = false)
 	
 	
-	private Long id;
+	private Long idHorario;
 	
-	@ManyToOne
-	@JoinColumn(name = "fecha")
-	private CitaMedicaEntity fecha;
 	
-	@ManyToOne
-	@JoinColumn(name = "hora")
-	private CitaMedicaEntity hora;
 	
-	@OneToOne(mappedBy="id")	
+	@OneToOne(mappedBy="horario")	
 	private CitaMedicaEntity  citaMedica;
 	
-	@OneToOne(mappedBy="idMedico")
-	private medicoEntity medico;
+	 @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "medico_id", referencedColumnName = "idMedico")
+        private medicoEntity idMedico;
 	
 	private Long idEstado;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
+    public Long getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(Long idHorario) {
+        this.idHorario = idHorario;
+    }
+
+    public CitaMedicaEntity getCitaMedica() {
+        return citaMedica;
+    }
+
+    public void setCitaMedica(CitaMedicaEntity citaMedica) {
+        this.citaMedica = citaMedica;
+    }
+
+    public medicoEntity getIdMedico() {
+        return idMedico;
+    }
+
+    public void setIdMedico(medicoEntity idMedico) {
+        this.idMedico = idMedico;
+    }
+
+   
+
+    public Long getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(Long idEstado) {
+        this.idEstado = idEstado;
+    }
 	
-	
-	public CitaMedicaEntity getFecha() {
-		return fecha;
-	}
-	public void setFecha(CitaMedicaEntity fecha) {
-		this.fecha = fecha;
-	}
-	public CitaMedicaEntity getHora() {
-		return hora;
-	}
-	public void setHora(CitaMedicaEntity hora) {
-		this.hora = hora;
-	}
-	public CitaMedicaEntity getCitaMedica() {
-		return citaMedica;
-	}
-	public void setCitaMedica(CitaMedicaEntity citaMedica) {
-		this.citaMedica = citaMedica;
-	}
-	public medicoEntity getMedico() {
-		return medico;
-	}
-	public void setMedico(medicoEntity medico) {
-		this.medico = medico;
-	}
-	public Long getIdEstado() {
-		return idEstado;
-	}
-	public void setIdEstado(Long idEstado) {
-		this.idEstado = idEstado;
-	}
 	
 	
 

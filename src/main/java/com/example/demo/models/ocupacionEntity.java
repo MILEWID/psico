@@ -23,8 +23,8 @@ public class ocupacionEntity {
 	@OneToOne(mappedBy = "ocupacion")
     private asistenteEntity asistente;
 	 
-	 @OneToOne(mappedBy = "admin")
-     private administradorEntity  admin;
+	 @OneToOne(mappedBy = "ocupacion")
+     private administradorEntity  administrador;
          
          
 	 
@@ -56,13 +56,15 @@ public class ocupacionEntity {
         this.asistente = asistente;
     }
 
-    public administradorEntity getAdmin() {
-        return admin;
+    public administradorEntity getAdministrador() {
+        return administrador;
     }
 
-    public void setAdmin(administradorEntity admin) {
-        this.admin = admin;
+    public void setAdministrador(administradorEntity administrador) {
+        this.administrador = administrador;
     }
+
+    
 
     public pacienteEntity getPaciente() {
         return paciente;

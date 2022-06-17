@@ -30,12 +30,15 @@ public class personaEntity {
 	private String nombres;
         private String apellidos;
         // uno a muchos 
-        private Long genero;
+        @ManyToOne
+        @JoinColumn(name = "id_gen")
+        private generoEntity gen;
         // uno a muhcos 
         private Long ocupaion;
         private String direccion;
         private String telefono;
         private String correo;
+        // uno a muchos 
         private Long tipouser;
         private String contrasena;
         // muchos a uno 
@@ -71,12 +74,12 @@ public class personaEntity {
         this.apellidos = apellidos;
     }
 
-    public Long getGenero() {
-        return genero;
+    public generoEntity getGen() {
+        return gen;
     }
 
-    public void setGenero(Long genero) {
-        this.genero = genero;
+    public void setGen(generoEntity gen) {
+        this.gen = gen;
     }
 
     public Long getOcupaion() {

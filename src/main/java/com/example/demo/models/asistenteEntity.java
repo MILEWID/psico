@@ -51,6 +51,12 @@ public class asistenteEntity {
 		public List<ocupacionEntity> getOcupacion() {
 			return ocupacion;
 		}
+		public List<tipousuarioEntity> getTipo_usuario() {
+			return tipo_usuario;
+		}
+		public void setTipo_usuario(List<tipousuarioEntity> tipo_usuario) {
+			this.tipo_usuario = tipo_usuario;
+		}
         
 }
 

@@ -4,6 +4,8 @@
  */
 package com.example.demo.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,27 +15,31 @@ public class administradorEntity {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(unique = true, nullable = false)
 	    private Long idAdministrador;
-	 	private Long tipo_usuario;
-	 	private Long ocupacion;
+	 	
+	 	
+	 	@OneToOne(mappedBy = "admin")
+		 private List<ocupacionEntity>  ocupacion;
+		 
+		 @OneToOne(mappedBy = "admini")
+		 private List<tipousuarioEntity>  tipo_usuario;
+		 
+		public List<tipousuarioEntity> getTipo_usuario() {
+			return tipo_usuario;
+		}
+		public void setTipo_usuario(List<tipousuarioEntity> tipo_usuario) {
+			this.tipo_usuario = tipo_usuario;
+		}
+		public List<ocupacionEntity> getOcupacion() {
+			return ocupacion;
+		}
+		public void setOcupacion(List<ocupacionEntity> ocupacion) {
+			this.ocupacion = ocupacion;
+		}
 		public Long getIdAdministrador() {
 			return idAdministrador;
 		}
 		public void setIdAdministrador(Long idAdministrador) {
 			this.idAdministrador = idAdministrador;
 		}
-		public Long getTipo_usuario() {
-			return tipo_usuario;
-		}
-		public void setTipo_usuario(Long tipo_usuario) {
-			this.tipo_usuario = tipo_usuario;
-		}
-		public Long getOcupacion() {
-			return ocupacion;
-		}
-		public void setOcupacion(Long ocupacion) {
-			this.ocupacion = ocupacion;
-		}
-
-
 
 }

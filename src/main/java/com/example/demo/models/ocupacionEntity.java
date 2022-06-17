@@ -22,6 +22,15 @@ public class ocupacionEntity {
 	 @OneToOne(mappedBy = "asiste")
 	 private List<asistenteEntity>  asiste;
 	 
+	 @OneToOne(mappedBy = "admin")
+	 private List<administradorEntity> administrador ;
+	 
+	public List<administradorEntity> getAdministrador() {
+		return administrador;
+	}
+	public void setAdministrador(List<administradorEntity> administrador) {
+		this.administrador = administrador;
+	}
 	public Long getIdocupacion() {
 		return idocupacion;
 	}

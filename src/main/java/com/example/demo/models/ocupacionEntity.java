@@ -6,6 +6,8 @@
 //
 //salvando el semestre
 package com.example.demo.models;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,8 +18,18 @@ public class ocupacionEntity {
         @Column(unique = true, nullable = false)
 	private Long idocupacion;
 	private String descripcion;
+	
+	 @OneToOne(mappedBy = "asiste")
+	 private List<asistenteEntity>  asiste;
+	 
 	public Long getIdocupacion() {
 		return idocupacion;
+	}
+	public List<asistenteEntity> getAsiste() {
+		return asiste;
+	}
+	public void setAsiste(List<asistenteEntity> asiste) {
+		this.asiste = asiste;
 	}
 	public void setIdocupacion(Long idocupacion) {
 		this.idocupacion = idocupacion;

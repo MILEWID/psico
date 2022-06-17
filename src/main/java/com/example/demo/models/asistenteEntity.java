@@ -19,39 +19,38 @@ public class asistenteEntity {
         @Column(unique = true, nullable = false)
 	
     	private Long idasistente;
-    	private Long ocupacion;
+
+
     	public List<especialidadEntity> getEspecialidad() {
 			return especialidad;
 		}
 		public void setEspecialidad(List<especialidadEntity> especialidad) {
 			this.especialidad = especialidad;
 		}
-		private Long tipo_usuario;
+		
     	
     	 @OneToMany(mappedBy = "asist")
     	 private List<especialidadEntity>  especialidad;
     	
+    	 public void setOcupacion(List<ocupacionEntity> ocupacion) {
+			this.ocupacion = ocupacion;
+		}
+		@OneToOne(mappedBy = "asiste")
+    	 private List<ocupacionEntity>  ocupacion;
+    	 
+    	 @OneToOne(mappedBy = "asisten")
+    	 private List<tipousuarioEntity>  tipo_usuario;
+    	 
 		public Long getIdasistente() {
 			return idasistente;
 		}
 		public void setIdasistente(Long idasistente) {
 			this.idasistente = idasistente;
 		}
-		public Long getOcupacion() {
+
+		public List<ocupacionEntity> getOcupacion() {
 			return ocupacion;
 		}
-		public void setOcupacion(Long ocupacion) {
-			this.ocupacion = ocupacion;
-		}
-
-		public Long getTipo_usuario() {
-			return tipo_usuario;
-		}
-		public void setTipo_usuario(Long tipo_usuario) {
-			this.tipo_usuario = tipo_usuario;
-		}
-
- 
         
 }
 

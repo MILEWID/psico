@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="cita_medica")
@@ -11,12 +12,21 @@ public class CitaMedicaEntity {
     @Column(unique = true, nullable = false)
 	
 	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name = "idMedico")
 	private int idMedico;
+	
+	@ManyToOne
+	@JoinColumn(name = "idPaciente")
 	private int idPaciente;
-	private String fecha;
+	
+	@OneToMany(mappedBy="fecha")
+	private Date fecha;
+	
+	@OneToMany(mappedBy="hora")
 	private String hora;
-	private String medico;
-	private String paciente;
+	
 	
 	public Long getId() {
 		return id;
@@ -36,10 +46,10 @@ public class CitaMedicaEntity {
 	public void setIdPaciente(char idPaciente) {
 		this.idPaciente = idPaciente;
 	}
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	public String getHora() {
@@ -48,19 +58,5 @@ public class CitaMedicaEntity {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	public String getMedico() {
-		return medico;
-	}
-	public void setMedico(String medico) {
-		this.medico = medico;
-	}
-	public String getPaciente() {
-		return paciente;
-	}
-	public void setPaciente(String paciente) {
-		this.paciente = paciente;
-	}
 	
-	
-
 }

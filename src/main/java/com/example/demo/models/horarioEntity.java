@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,7 +23,13 @@ public class horarioEntity {
 	
 	
 	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name = "fecha")
 	private Date fecha = new Date();
+	
+	@ManyToOne
+	@JoinColumn(name = "hora")
 	private String hora;
 	
 	@OneToOne(mappedBy="id")	

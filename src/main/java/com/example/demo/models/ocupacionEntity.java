@@ -27,8 +27,8 @@ public class ocupacionEntity {
      private administradorEntity  admin;
 	 
 	@ManyToOne
-	 @JoinColumn(name = "pacie")
-	 private List<pacienteEntity> paciente;
+	 @JoinColumn(name = "paciente")
+	 private pacienteEntity paciente;
 
 	public Long getIdocupacion() {
 		return idocupacion;
@@ -62,15 +62,12 @@ public class ocupacionEntity {
 		this.admin = admin;
 	}
 
-	public List<pacienteEntity> getPaciente() {
+	public pacienteEntity getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(List<pacienteEntity> paciente) {
+	public void setPaciente(pacienteEntity paciente) {
 		this.paciente = paciente;
 	}
-
-	
-	
 	
 }

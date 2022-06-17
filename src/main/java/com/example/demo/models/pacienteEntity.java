@@ -20,7 +20,7 @@ public class pacienteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idPaciente;
-    private Long ocupacion;
+ //   private Long ocupacion;
     private Long tipo_usuario;
     private Long cita_medica;
     private String telefono;
@@ -34,6 +34,9 @@ public class pacienteEntity {
     @OneToOne(mappedBy = "idMedico")
         private conflictoEntity conflicto;
     
+    @OneToMany(mappedBy = "paciente")
+    private ocupacionEntity ocupacion;
+
 
     public Long getIdPaciente() {
         return idPaciente;
@@ -51,15 +54,15 @@ public class pacienteEntity {
         this.idHistoria_Clinica = idHistoria_Clinica;
     }
 
-    public Long getOcupacion() {
-        return ocupacion;
-    }
+    public ocupacionEntity getOcupacion() {
+		return ocupacion;
+	}
 
-    public void setOcupacion(Long ocupacion) {
-        this.ocupacion = ocupacion;
-    }
+	public void setOcupacion(ocupacionEntity ocupacion) {
+		this.ocupacion = ocupacion;
+	}
 
-    public Long getTipo_usuario() {
+	public Long getTipo_usuario() {
         return tipo_usuario;
     }
 

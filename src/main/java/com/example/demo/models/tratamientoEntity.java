@@ -19,7 +19,11 @@ public class tratamientoEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name="idHistoriaClinica")
     private Long idHistoriaClinica;
+    
     private String descripcion;
 
     @ManyToOne

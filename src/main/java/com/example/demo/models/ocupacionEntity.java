@@ -20,54 +20,58 @@ public class ocupacionEntity {
 	private Long idocupacion;
 	private String descripcion;
 	
-	@OneToOne(mappedBy = "ocupa")
-    private asistenteEntity  asiste;
+	@OneToOne(mappedBy = "ocupacion")
+    private asistenteEntity asistente;
 	 
 	 @OneToOne(mappedBy = "admin")
      private administradorEntity  admin;
+         
+         
 	 
 	@ManyToOne
 	 @JoinColumn(name = "paciente")
 	 private pacienteEntity paciente;
 
-	public Long getIdocupacion() {
-		return idocupacion;
-	}
+    public Long getIdocupacion() {
+        return idocupacion;
+    }
 
-	public void setIdocupacion(Long idocupacion) {
-		this.idocupacion = idocupacion;
-	}
+    public void setIdocupacion(Long idocupacion) {
+        this.idocupacion = idocupacion;
+    }
 
-	public String getDescripcion() {
-		return descripcion;
-	}
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public asistenteEntity getAsiste() {
-		return asiste;
-	}
+    public asistenteEntity getAsistente() {
+        return asistente;
+    }
 
-	public void setAsiste(asistenteEntity asiste) {
-		this.asiste = asiste;
-	}
+    public void setAsistente(asistenteEntity asistente) {
+        this.asistente = asistente;
+    }
 
-	public administradorEntity getAdmin() {
-		return admin;
-	}
+    public administradorEntity getAdmin() {
+        return admin;
+    }
 
-	public void setAdmin(administradorEntity admin) {
-		this.admin = admin;
-	}
+    public void setAdmin(administradorEntity admin) {
+        this.admin = admin;
+    }
 
-	public pacienteEntity getPaciente() {
-		return paciente;
-	}
+    public pacienteEntity getPaciente() {
+        return paciente;
+    }
 
-	public void setPaciente(pacienteEntity paciente) {
-		this.paciente = paciente;
-	}
+    public void setPaciente(pacienteEntity paciente) {
+        this.paciente = paciente;
+    }
+
+	
 	
 }

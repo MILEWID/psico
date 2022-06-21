@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Repository;
-import Models.Seguimiento_EdadesEntity;
+package com.example.demo.repository;
+import com.example.demo.models.Historia_ClinicaEntity;
 import java.util.ArrayList;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Usuario
  */
 @Repository
-public interface Seguimiento_EdadesRepository extends CrudRepository<Seguimiento_EdadesEntity , Long>{
+public interface Historia_ClinicaRepository extends CrudRepository<Historia_ClinicaEntity , Long>{
     
 }

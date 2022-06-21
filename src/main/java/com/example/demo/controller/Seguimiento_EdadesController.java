@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
-import Models.Seguimiento_EdadesEntity;
-import Service.Seguimiento_EdadesService;
+package com.example.demo.controller;
+import com.example.demo.models.Seguimiento_EdadesEntity;
+import com.example.demo.service.Seguimiento_EdadesService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

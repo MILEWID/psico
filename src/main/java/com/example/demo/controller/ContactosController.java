@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
-import Models.Historia_ClinicaEntity;
-import Service.Historia_ClinicaService;
+package com.example.demo.controller;
+
+import com.example.demo.models.ContactosEntity;
+import com.example.demo.service.ContactosService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,32 +24,32 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/historia_clinica")
-public class Historia_ClinicaController {
-    @Autowired
-	Historia_ClinicaService hist ;
+@RequestMapping("/contactos")
+public class ContactosController {
+     @Autowired
+	ContactosService contacto ;
 	
 	@GetMapping()
-	public ArrayList<Historia_ClinicaEntity> obtenerContacto(){
-		return hist.obtenerHistoriaClinica();
+	public ArrayList<ContactosEntity> obtenerContacto(){
+		return contacto.obtenerContacto();
 	}
 	
 	@PostMapping()
-		public Historia_ClinicaEntity guardarContacto(@RequestBody Historia_ClinicaEntity historia) {
-			return this.hist.guardarHistoriaClinica(historia);
+		public ContactosEntity guardarContacto(@RequestBody ContactosEntity cont) {
+			return this.contacto.guardarContacto(cont);
 	}
         @DeleteMapping(path ="/{id}")
                   public String eliminarContacto(@PathVariable("id") Long id){
-                      boolean ok = this.hist.eliminarHistoriaClinica(id);
+                      boolean ok = this.contacto.eliminarContacto(id);
             if(ok){
-                return "La historia del paciente se eliminó correctamente ";
+                return "El contacto del paciente se eliminó correctamente ";
             }
             else{
-                return "La historia " + id +" no fue eliminada correctamente ";
+                return "El contacto " + id +" no fue eliminado correctamente ";
             }
         }
         @GetMapping(path ="/{id}")
-	 public Optional<Historia_ClinicaEntity> obtenerPorId(@PathVariable("id") Long id) {
-		return this.hist.obtenerPorId(id);
+	 public Optional<ContactosEntity> obtenerPorId(@PathVariable("id") Long id) {
+		return this.contacto.obtenerPorId(id);
 	}
 }

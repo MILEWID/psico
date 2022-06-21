@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Service;
+package com.example.demo.service;
 
-import Models.ContactosEntity;
-import Repository.ContactosRepository;
+import com.example.demo.models.ContactosEntity;
+import com.example.demo.repository.ContactosRepository;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package com.example.demo.controller;
 
-import Models.ContactosEntity;
-import Service.ContactosService;
+import com.example.demo.models.Funcion_PsiquicaEntity;
+import com.example.demo.service.Funcion_PsiquicaService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.http.ResponseEntity.ok;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,34 +21,33 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Usuario
  */
-
 @RestController
-@RequestMapping("/contactos")
-public class ContactosController {
+@RequestMapping("/funcionpsiquica")
+public class Funcion_PsiquicaController {
      @Autowired
-	ContactosService contacto ;
+	Funcion_PsiquicaService fp ;
 	
 	@GetMapping()
-	public ArrayList<ContactosEntity> obtenerContacto(){
-		return contacto.obtenerContacto();
+	public ArrayList<Funcion_PsiquicaEntity> obtenerfp(){
+		return fp.obtener();
 	}
 	
 	@PostMapping()
-		public ContactosEntity guardarContacto(@RequestBody ContactosEntity cont) {
-			return this.contacto.guardarContacto(cont);
+		public Funcion_PsiquicaEntity guardarfp(@RequestBody Funcion_PsiquicaEntity funcion) {
+			return this.fp.guardar(funcion);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarContacto(@PathVariable("id") Long id){
-                      boolean ok = this.contacto.eliminarContacto(id);
+                  public String eliminarfp(@PathVariable("id") Long id){
+                      boolean ok = this.fp.eliminar(id);
             if(ok){
-                return "El contacto del paciente se eliminó correctamente ";
+                return "La funcion psiquica se eliminó correctamente ";
             }
             else{
-                return "El contacto " + id +" no fue eliminado correctamente ";
+                return "La funcion psiquica " + id +" no fue eliminada correctamente ";
             }
         }
         @GetMapping(path ="/{id}")
-	 public Optional<ContactosEntity> obtenerPorId(@PathVariable("id") Long id) {
-		return this.contacto.obtenerPorId(id);
+	 public Optional<Funcion_PsiquicaEntity> obtenerPorId(@PathVariable("id") Long id) {
+		return this.fp.obtenerPorId(id);
 	}
 }

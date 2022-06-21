@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Service;
-import Models.AnamnesisEntity;
-import Repository.AnamnesisRepository;
+package com.example.demo.service;
+import com.example.demo.models.AnamnesisEntity;
+import com.example.demo.repository.AnamnesisRepository;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

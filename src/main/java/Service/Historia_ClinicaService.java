@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Service;
-
-import Models.ContactosEntity;
-import Repository.ContactosRepository;
+import Models.Historia_ClinicaEntity;
+import Repository.Historia_ClinicaRepository;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,23 +16,23 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class ContactosService {
+public class Historia_ClinicaService {
     @Autowired
-	ContactosRepository contacto;
+	Historia_ClinicaRepository hist;
 	
-	public ArrayList<ContactosEntity> obtenerContacto(){
-		return (ArrayList<ContactosEntity> ) contacto.findAll();
+	public ArrayList<Historia_ClinicaEntity> obtenerHistoriaClinica(){
+		return (ArrayList<Historia_ClinicaEntity> ) hist.findAll();
 	}
 	
-	public ContactosEntity guardarContacto(ContactosEntity cont) {
-		return contacto.save(cont);
+	public Historia_ClinicaEntity guardarHistoriaClinica(Historia_ClinicaEntity historia) {
+		return hist.save(historia);
 	}
-        public Optional<ContactosEntity> obtenerPorId(Long id) {
-		return contacto.findById(id);
+        public Optional<Historia_ClinicaEntity> obtenerPorId(Long id) {
+		return hist.findById(id);
 	}
-        public boolean eliminarContacto(Long id){
+        public boolean eliminarHistoriaClinica(Long id){
             try{
-                contacto.deleteById(id);
+                hist.deleteById(id);
                 return true;
             }
             catch(Exception err){

@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
-
-import Models.ContactosEntity;
-import Service.ContactosService;
+import Models.Historia_ClinicaEntity;
+import Service.Historia_ClinicaService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,32 +23,32 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/contactos")
-public class ContactosController {
-     @Autowired
-	ContactosService contacto ;
+@RequestMapping("/historia_clinica")
+public class Historia_ClinicaController {
+    @Autowired
+	Historia_ClinicaService hist ;
 	
 	@GetMapping()
-	public ArrayList<ContactosEntity> obtenerContacto(){
-		return contacto.obtenerContacto();
+	public ArrayList<Historia_ClinicaEntity> obtenerContacto(){
+		return hist.obtenerHistoriaClinica();
 	}
 	
 	@PostMapping()
-		public ContactosEntity guardarContacto(@RequestBody ContactosEntity cont) {
-			return this.contacto.guardarContacto(cont);
+		public Historia_ClinicaEntity guardarContacto(@RequestBody Historia_ClinicaEntity historia) {
+			return this.hist.guardarHistoriaClinica(historia);
 	}
         @DeleteMapping(path ="/{id}")
                   public String eliminarContacto(@PathVariable("id") Long id){
-                      boolean ok = this.contacto.eliminarContacto(id);
+                      boolean ok = this.hist.eliminarHistoriaClinica(id);
             if(ok){
-                return "El contacto del paciente se eliminó correctamente ";
+                return "La historia del paciente se eliminó correctamente ";
             }
             else{
-                return "El contacto " + id +" no fue eliminado correctamente ";
+                return "La historia " + id +" no fue eliminada correctamente ";
             }
         }
         @GetMapping(path ="/{id}")
-	 public Optional<ContactosEntity> obtenerPorId(@PathVariable("id") Long id) {
-		return this.contacto.obtenerPorId(id);
+	 public Optional<Historia_ClinicaEntity> obtenerPorId(@PathVariable("id") Long id) {
+		return this.hist.obtenerPorId(id);
 	}
 }

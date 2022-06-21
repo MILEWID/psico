@@ -4,7 +4,7 @@
  */
 package com.example.demo.repository;
 
-import com.example.demo.models.Persona_NombreEntity;
+import com.example.demo.models.PersonaNombreEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author USUARIO
  */
 @Repository
-public interface Persona_NombreRepository extends CrudRepository<Persona_NombreEntity , Long>{
+public interface PersonaNombreRepository extends CrudRepository<PersonaNombreEntity , Long>{
     
 }

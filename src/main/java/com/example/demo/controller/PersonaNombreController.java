@@ -4,8 +4,8 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.models.Persona_NombreEntity;
-import com.example.demo.service.Persona_NombreService;
+import com.example.demo.models.PersonaNombreEntity;
+import com.example.demo.service.PersonaNombreService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @author USUARIO
  */
 @RestController
-@RequestMapping("/persona_nombre")
-public class Persona_NombreController {
+@RequestMapping("/personanombre")
+public class PersonaNombreController {
     @Autowired
-	Persona_NombreService np ;
+	PersonaNombreService np ;
 	
 	@GetMapping()
-	public ArrayList<Persona_NombreEntity> obtenernp(){
+	public ArrayList<PersonaNombreEntity> obtenernp(){
 		return np.obtener();
 	}
 	
 	@PostMapping()
-		public Persona_NombreEntity guardarnp(@RequestBody Persona_NombreEntity nombre) {
+		public PersonaNombreEntity guardarnp(@RequestBody PersonaNombreEntity nombre) {
 			return this.np.guardar(nombre);
 	}
         @DeleteMapping(path ="/{id}")
@@ -47,7 +47,7 @@ public class Persona_NombreController {
             }
         }
         @GetMapping(path ="/{id}")
-	 public Optional<Persona_NombreEntity> obtenerPorId(@PathVariable("id") Long id) {
+	 public Optional<PersonaNombreEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.np.obtenerPorId(id);
 	}
 }

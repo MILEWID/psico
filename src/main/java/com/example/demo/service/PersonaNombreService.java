@@ -4,29 +4,30 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.models.Persona_NombreEntity;
-import com.example.demo.repository.Persona_NombreRepository;
+import com.example.demo.models.PersonaNombreEntity;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.demo.repository.PersonaNombreRepository;
 
 /**
  *
  * @author USUARIO
  */
-public class Persona_NombreService {
+@Service
+public class PersonaNombreService {
     @Autowired
-	Persona_NombreRepository np;
+	PersonaNombreRepository np;
 	
-	public ArrayList<Persona_NombreEntity> obtener(){
-		return (ArrayList<Persona_NombreEntity> ) np.findAll();
+	public ArrayList<PersonaNombreEntity> obtener(){
+		return (ArrayList<PersonaNombreEntity> ) np.findAll();
 	}
 	
-	public Persona_NombreEntity guardar(Persona_NombreEntity personaname) {
+	public PersonaNombreEntity guardar(PersonaNombreEntity personaname) {
 		return np.save(personaname);
 	}
-        public Optional<Persona_NombreEntity> obtenerPorId(Long id) {
+        public Optional<PersonaNombreEntity> obtenerPorId(Long id) {
 		return np.findById(id);
 	}
         public boolean eliminar(Long id){

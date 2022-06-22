@@ -20,6 +20,10 @@ public class PersonaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idPersona;
+    
+    @OneToOne(mappedBy = "idPersona")
+    private Historia_ClinicaEntity idHistoriaClinica;
+    
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date fechaNacimiento;
@@ -70,6 +74,14 @@ public class PersonaEntity {
 
     public String getCorreo() {
         return correo;
+    }
+
+    public Historia_ClinicaEntity getIdHistoriaClinica() {
+        return idHistoriaClinica;
+    }
+
+    public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
+        this.idHistoriaClinica = idHistoriaClinica;
     }
 
     public void setCorreo(String correo) {

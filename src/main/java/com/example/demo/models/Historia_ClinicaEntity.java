@@ -11,6 +11,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "historia_clinica")
+
+
 public class Historia_ClinicaEntity {
     
     @Id
@@ -26,7 +28,11 @@ public class Historia_ClinicaEntity {
     private Long idHistoraSocial;
     private Long idDiagnostico;
     private Long idPlan;
-    private Long idPersona;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
+    private PersonaEntity idPersona;
+    
     private String referencia;
     private String transtorno;
     private String alergia;
@@ -113,11 +119,11 @@ public class Historia_ClinicaEntity {
         this.idPlan = idPlan;
     }
 
-    public Long getIdPersona() {
+    public PersonaEntity getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(Long idPersona) {
+    public void setIdPersona(PersonaEntity idPersona) {
         this.idPersona = idPersona;
     }
 

@@ -29,7 +29,9 @@ public class Historia_ClinicaEntity {
     private Long idHistoraSocial;
     @OneToMany(mappedBy = "historiacli")
     private List<diagnosticoEntity> idDiagnostico;
-    private Long idPlan;
+    
+    @OneToMany(mappedBy = "historiaclin")
+    private List<planesEntity> idPlan;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
@@ -113,11 +115,11 @@ public class Historia_ClinicaEntity {
         this.idDiagnostico = idDiagnostico;
     }
 
-    public Long getIdPlan() {
+    public List<planesEntity> getIdPlan() {
         return idPlan;
     }
 
-    public void setIdPlan(Long idPlan) {
+    public void setIdPlan(List<planesEntity> idPlan) {
         this.idPlan = idPlan;
     }
 
@@ -169,6 +171,7 @@ public class Historia_ClinicaEntity {
         this.atencionPrevia = atencionPrevia;
     }
 
+  
     
     
 }

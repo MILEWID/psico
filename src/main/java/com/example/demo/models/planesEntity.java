@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +27,10 @@ public class planesEntity {
     private Long idcie;
     private String descripcion;
     private Long estado;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_histcli")
+    private Historia_ClinicaEntity historiaclin;
 
     public Long getIddianogstico() {
         return iddianogstico;
@@ -57,6 +63,15 @@ public class planesEntity {
     public void setEstado(Long estado) {
         this.estado = estado;
     }
+
+    public Historia_ClinicaEntity getHistoriaclin() {
+        return historiaclin;
+    }
+
+    public void setHistoriaclin(Historia_ClinicaEntity historiaclin) {
+        this.historiaclin = historiaclin;
+    }
+
 
     
 

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,11 +20,15 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "cie")
 public class cieEntity {
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idcie;
     private String descripcion;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_diagnos")
+    private diagnosticoEntity diag;
 
     public Long getIdcie() {
         return idcie;
@@ -39,5 +45,19 @@ public class cieEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public diagnosticoEntity getDiag() {
+        return diag;
+    }
+
+    public void setDiag(diagnosticoEntity diag) {
+        this.diag = diag;
+    }
+
+ 
+
+ 
+
+   
 
 }

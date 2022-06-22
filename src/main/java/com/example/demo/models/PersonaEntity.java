@@ -6,6 +6,7 @@ package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,6 +32,9 @@ public class PersonaEntity {
     private String estadoCivil;
     private String religion;
     private String correo;
+    
+    @OneToMany(mappedBy = "idPersona")
+    private List<ContactosEntity> contactos;
 
     public Long getIdPersona() {
         return idPersona;

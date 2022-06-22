@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,7 +28,10 @@ public class ContactosEntity {
     private Long idContacto;
     private String telefono;
     private String descripcion;
-    private String idPersona;
+    
+    @ManyToOne
+    @JoinColumn(name = "idPersona")
+    private PersonaEntity idPersona;
 
     public Long getIdContacto() {
         return idContacto;
@@ -52,14 +57,14 @@ public class ContactosEntity {
         this.descripcion = descripcion;
     }
 
-    public String getIdPersona() {
+    public PersonaEntity getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(String idPersona) {
+    public void setIdPersona(PersonaEntity idPersona) {
         this.idPersona = idPersona;
     }
-    
+
     
     
 }

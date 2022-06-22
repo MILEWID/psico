@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.example.demo.models;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -26,7 +27,8 @@ public class Historia_ClinicaEntity {
     private Long idFuncionPsiquica;
     private Long idHistoriaLaboral;
     private Long idHistoraSocial;
-    private Long idDiagnostico;
+    @OneToMany(mappedBy = "historiacli")
+    private List<diagnosticoEntity> idDiagnostico;
     private Long idPlan;
     
     @OneToOne(cascade = CascadeType.ALL)
@@ -103,11 +105,11 @@ public class Historia_ClinicaEntity {
         this.idHistoraSocial = idHistoraSocial;
     }
 
-    public Long getIdDiagnostico() {
+    public List<diagnosticoEntity> getIdDiagnostico() {
         return idDiagnostico;
     }
 
-    public void setIdDiagnostico(Long idDiagnostico) {
+    public void setIdDiagnostico(List<diagnosticoEntity> idDiagnostico) {
         this.idDiagnostico = idDiagnostico;
     }
 
@@ -166,7 +168,7 @@ public class Historia_ClinicaEntity {
     public void setAtencionPrevia(String atencionPrevia) {
         this.atencionPrevia = atencionPrevia;
     }
-    
+
     
     
 }

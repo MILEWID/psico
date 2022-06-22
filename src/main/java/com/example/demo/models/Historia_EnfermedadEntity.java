@@ -16,6 +16,7 @@ public class Historia_EnfermedadEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
+    private Long idHistoriaEnfermedad;
     private String descripcion;
 
 	public String getDescripcion() {

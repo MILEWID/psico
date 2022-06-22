@@ -16,9 +16,11 @@ public class Historia_SocialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
+    private Long idHistoraSocial;
     private String descripcion;
 
 	public String getDescripcion() {
+		
 		return descripcion;
 	}
 

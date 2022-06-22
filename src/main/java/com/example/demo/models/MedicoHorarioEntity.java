@@ -15,6 +15,7 @@ public class MedicoHorarioEntity {
 	
 	private Long idMedico;
 	private Long idHorario;
+	
 	public Long getIdMedicoHorario() {
 		return idMedicoHorario;
 	}
@@ -35,7 +36,7 @@ public class MedicoHorarioEntity {
 	}
 	
 	
-	
+	//Comentario para probar branch
 	
 	
 

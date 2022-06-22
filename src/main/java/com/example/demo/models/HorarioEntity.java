@@ -24,10 +24,11 @@ public class HorarioEntity {
 	@Column(unique=true, nullable=false)
 	
 	private Long idHorario;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
-
+	
 	private Long idMedico;
 	private String estado;
 	public Long getIdHorario() {

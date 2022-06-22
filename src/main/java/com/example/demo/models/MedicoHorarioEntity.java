@@ -36,8 +36,7 @@ public class MedicoHorarioEntity {
 	}
 	
 	
-	//Comentario para probar branch
-	
+
 	
 
 }

@@ -17,6 +17,7 @@ public class Historia_LaboralEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
+    private Long id;
     private String descripcion;
 
 	public String getDescripcion() {
@@ -26,5 +27,13 @@ public class Historia_LaboralEntity {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }

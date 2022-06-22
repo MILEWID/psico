@@ -25,6 +25,10 @@ public class PersonaEntity {
     @OneToOne(mappedBy = "idPersona")
     private Historia_ClinicaEntity idHistoriaClinica;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idNombre", referencedColumnName = "idNombre")
+    private PersonaNombreEntity idNombre;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date fechaNacimiento;
@@ -90,5 +94,21 @@ public class PersonaEntity {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public PersonaNombreEntity getIdNombre() {
+        return idNombre;
+    }
+
+    public void setIdNombre(PersonaNombreEntity idNombre) {
+        this.idNombre = idNombre;
+    }
+
+    public List<ContactosEntity> getContactos() {
+        return contactos;
+    }
+
+    public void setContactos(List<ContactosEntity> contactos) {
+        this.contactos = contactos;
     }
 }

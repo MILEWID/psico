@@ -17,6 +17,10 @@ public class PersonaNombreEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idNombre;
+
+    @OneToOne(mappedBy = "idNombre")
+    private PersonaEntity idPersona;
+
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String primerNombre;
@@ -60,5 +64,13 @@ public class PersonaNombreEntity {
 
     public void setSegundoNombre(String segundoNombre) {
         this.segundoNombre = segundoNombre;
+    }
+
+    public PersonaEntity getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(PersonaEntity idPersona) {
+        this.idPersona = idPersona;
     }
 }

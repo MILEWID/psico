@@ -28,12 +28,13 @@ public class Historia_LaboralEntity {
 		this.descripcion = descripcion;
 	}
 
-    public Long getId() {
-        return id;
+    public Long getIdHistoriaLaboral() {
+        return idHistoriaLaboral;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdHistoriaLaboral(Long idHistoriaLaboral) {
+        this.idHistoriaLaboral = idHistoriaLaboral;
     }
+
 
 }

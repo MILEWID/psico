@@ -20,14 +20,15 @@ public class Grupo_FamiliarEntity {
     private String familiaOrigen;
     private String familiaPropio;
 
-    public Long getId() {
-        return id;
+    public Long getIdGrupoFamiliar() {
+        return idGrupoFamiliar;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdGrupoFamiliar(Long idGrupoFamiliar) {
+        this.idGrupoFamiliar = idGrupoFamiliar;
     }
-    
+
+
     
 	public String getFamiliaOrigen() {
 		return familiaOrigen;

@@ -19,15 +19,15 @@ public class Historia_SocialEntity {
     private Long idHistoraSocial;
     private String descripcion;
 
-    public Long getId() {
-        return id;
+    public Long getIdHistoraSocial() {
+        return idHistoraSocial;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdHistoraSocial(Long idHistoraSocial) {
+        this.idHistoraSocial = idHistoraSocial;
     }
-    
-    
+
+
 
 	public String getDescripcion() {
 		

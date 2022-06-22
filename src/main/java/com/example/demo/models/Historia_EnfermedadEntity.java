@@ -19,15 +19,15 @@ public class Historia_EnfermedadEntity {
     private Long idHistoriaEnfermedad;
     private String descripcion;
 
-    public Long getId() {
-        return id;
+    public Long getIdHistoriaEnfermedad() {
+        return idHistoriaEnfermedad;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdHistoriaEnfermedad(Long idHistoriaEnfermedad) {
+        this.idHistoriaEnfermedad = idHistoriaEnfermedad;
     }
 
-   
+
 	public String getDescripcion() {
 		return descripcion;
 	}

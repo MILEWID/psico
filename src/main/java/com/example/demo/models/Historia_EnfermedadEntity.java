@@ -26,5 +26,5 @@ public class Historia_EnfermedadEntity {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+//AASFSDF
 }

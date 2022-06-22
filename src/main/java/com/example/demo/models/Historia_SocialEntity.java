@@ -16,9 +16,7 @@ public class Historia_SocialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long id;
-    
-    
+    private Long idHistoraSocial;
     private String descripcion;
 
     public Long getId() {
@@ -32,6 +30,7 @@ public class Historia_SocialEntity {
     
 
 	public String getDescripcion() {
+		
 		return descripcion;
 	}
 

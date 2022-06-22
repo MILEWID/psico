@@ -16,7 +16,7 @@ public class Grupo_FamiliarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-        private Long id;
+    private Long idGrupoFamiliar;
     private String familiaOrigen;
     private String familiaPropio;
 

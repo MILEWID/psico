@@ -16,7 +16,7 @@ public class Historia_EnfermedadEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-        private Long id;
+    private Long idHistoriaEnfermedad;
     private String descripcion;
 
     public Long getId() {
@@ -35,5 +35,5 @@ public class Historia_EnfermedadEntity {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+//AASFSDF
 }

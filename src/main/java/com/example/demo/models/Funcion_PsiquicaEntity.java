@@ -16,7 +16,8 @@ public class Funcion_PsiquicaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long orientacion;
+    private Long idFuncionPsiquica;
+    private String  orientacion;
     private String telefono;
     private String conciencia;
     private String sensopercepcion;
@@ -24,12 +25,23 @@ public class Funcion_PsiquicaEntity {
     private String pensamiento;
     private String lenguaje;
     private String inteligencia;
+    
+        @OneToOne(mappedBy = "idFuncionPsiquica")
+    private Historia_ClinicaEntity idHistoriaClinica;
 
-    public Long getOrientacion() {
+    public Long getIdFuncionPsiquica() {
+        return idFuncionPsiquica;
+    }
+
+    public void setIdFuncionPsiquica(Long idFuncionPsiquica) {
+        this.idFuncionPsiquica = idFuncionPsiquica;
+    }
+
+    public String getOrientacion() {
         return orientacion;
     }
 
-    public void setOrientacion(Long orientacion) {
+    public void setOrientacion(String orientacion) {
         this.orientacion = orientacion;
     }
 
@@ -88,5 +100,14 @@ public class Funcion_PsiquicaEntity {
     public void setInteligencia(String inteligencia) {
         this.inteligencia = inteligencia;
     }
+
+    public Historia_ClinicaEntity getIdHistoriaClinica() {
+        return idHistoriaClinica;
+    }
+
+    public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
+        this.idHistoriaClinica = idHistoriaClinica;
+    }
     
+
 }

@@ -27,9 +27,9 @@ public class Historia_ClinicaEntity {
     private AnamnesisEntity idAnamnesis;
     
 
-
-
-    private Long idFuncionPsiquica;
+     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idFuncionPsiquica", referencedColumnName = "idFuncionPsiquica")
+    private Funcion_PsiquicaEntity idFuncionPsiquica;
     @OneToMany(mappedBy = "historiacli")
     private List<diagnosticoEntity> idDiagnostico;
     
@@ -80,11 +80,11 @@ public class Historia_ClinicaEntity {
         this.idAnamnesis = idAnamnesis;
     }
 
-    public Long getIdFuncionPsiquica() {
+    public Funcion_PsiquicaEntity getIdFuncionPsiquica() {
         return idFuncionPsiquica;
     }
 
-    public void setIdFuncionPsiquica(Long idFuncionPsiquica) {
+    public void setIdFuncionPsiquica(Funcion_PsiquicaEntity idFuncionPsiquica) {
         this.idFuncionPsiquica = idFuncionPsiquica;
     }
 
@@ -192,6 +192,7 @@ public class Historia_ClinicaEntity {
         this.atencionPrevia = atencionPrevia;
     }
 
+ 
     
  
 }

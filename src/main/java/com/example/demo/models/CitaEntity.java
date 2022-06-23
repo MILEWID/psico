@@ -13,33 +13,47 @@ public class CitaEntity {
 	@Column(unique=true, nullable=false)
 	
 	private Long idCita;
-	private Long idHorario;
-	private Long idPersona;
-	private Long idHistoriaClinica;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idHorario", referencedColumnName="idHorario")
+	private HorarioEntity idHorario;
+	
+	@ManyToOne
+	@JoinColumn(name="idPersona")
+	private PersonaEntity idPersona;
+	
+	@ManyToOne
+	@JoinColumn(name="idHistoriaClinica")
+	private Historia_ClinicaEntity historiaclin;
+	
 	public Long getIdCita() {
 		return idCita;
 	}
 	public void setIdCita(Long idCita) {
 		this.idCita = idCita;
 	}
-	public Long getIdHorario() {
+	public HorarioEntity getIdHorario() {
 		return idHorario;
 	}
-	public void setIdHorario(Long idHorario) {
+	public void setIdHorario(HorarioEntity idHorario) {
 		this.idHorario = idHorario;
 	}
-	public Long getIdPersona() {
+	
+	
+	public Historia_ClinicaEntity getHistoriaclin() {
+		return historiaclin;
+	}
+	public void setHistoriaclin(Historia_ClinicaEntity historiaclin) {
+		this.historiaclin = historiaclin;
+	}
+	public PersonaEntity getIdPersona() {
 		return idPersona;
 	}
-	public void setIdPersona(Long idPersona) {
+	public void setIdPersona(PersonaEntity idPersona) {
 		this.idPersona = idPersona;
 	}
-	public Long getIdHistoriaClinica() {
-		return idHistoriaClinica;
-	}
-	public void setIdHistoriaClinica(Long idHistoriaClinica) {
-		this.idHistoriaClinica = idHistoriaClinica;
-	}
+	
+	
 	
 
 }

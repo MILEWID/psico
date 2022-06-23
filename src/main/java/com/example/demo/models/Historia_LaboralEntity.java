@@ -19,6 +19,17 @@ public class Historia_LaboralEntity {
     @Column(unique = true, nullable = false)
     private Long idHistoriaLaboral;
     private String descripcion;
+    
+    @OneToOne(mappedBy = "idHistoriaLaboral")
+    private Historia_ClinicaEntity idHistoriaClinica;
+
+	public Historia_ClinicaEntity getIdHistoriaClinica() {
+		return idHistoriaClinica;
+	}
+
+	public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
+		this.idHistoriaClinica = idHistoriaClinica;
+	}
 
 	public String getDescripcion() {
 		return descripcion;
@@ -27,5 +38,14 @@ public class Historia_LaboralEntity {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+    public Long getIdHistoriaLaboral() {
+        return idHistoriaLaboral;
+    }
+
+    public void setIdHistoriaLaboral(Long idHistoriaLaboral) {
+        this.idHistoriaLaboral = idHistoriaLaboral;
+    }
+
 
 }

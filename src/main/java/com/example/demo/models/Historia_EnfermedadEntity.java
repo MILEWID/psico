@@ -18,6 +18,27 @@ public class Historia_EnfermedadEntity {
     @Column(unique = true, nullable = false)
     private Long idHistoriaEnfermedad;
     private String descripcion;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_histcli")
+    private Historia_ClinicaEntity historiaclini;
+
+    public Historia_ClinicaEntity getHistoriaclini() {
+		return historiaclini;
+	}
+
+	public void setHistoriaclini(Historia_ClinicaEntity historiaclini) {
+		this.historiaclini = historiaclini;
+	}
+
+	public Long getIdHistoriaEnfermedad() {
+        return idHistoriaEnfermedad;
+    }
+
+    public void setIdHistoriaEnfermedad(Long idHistoriaEnfermedad) {
+        this.idHistoriaEnfermedad = idHistoriaEnfermedad;
+    }
+
 
 	public String getDescripcion() {
 		return descripcion;
@@ -26,5 +47,5 @@ public class Historia_EnfermedadEntity {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+//AASFSDF
 }

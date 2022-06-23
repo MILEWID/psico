@@ -16,7 +16,7 @@ public class Historia_SocialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long idHistoraSocial;
+    private Long idHistoriaSocial;
     private String descripcion;
 
     @OneToOne(mappedBy = "idHistoriaSocial")
@@ -30,15 +30,13 @@ public class Historia_SocialEntity {
 		this.idHistoriaClinica = idHistoriaClinica;
 	}
 
-	public Long getIdHistoraSocial() {
-        return idHistoraSocial;
-    }
+	public Long getIdHistoriaSocial() {
+		return idHistoriaSocial;
+	}
 
-    public void setIdHistoraSocial(Long idHistoraSocial) {
-        this.idHistoraSocial = idHistoraSocial;
-    }
-
-
+	public void setIdHistoriaSocial(Long idHistoriaSocial) {
+		this.idHistoriaSocial = idHistoriaSocial;
+	}
 
 	public String getDescripcion() {
 		
@@ -50,4 +48,3 @@ public class Historia_SocialEntity {
 	}
 
 }
-

@@ -29,10 +29,6 @@ public class Historia_ClinicaEntity {
     
     @OneToMany(mappedBy = "historiaclin")
     private List<planesEntity> idPlan;
-    
-    public void setIdHistoriaEnfermedad(List<Historia_EnfermedadEntity> idHistoriaEnfermedad) {
-		this.idHistoriaEnfermedad = idHistoriaEnfermedad;
-	}
 
 	@OneToMany(mappedBy = "historiaclini")
     private List<Historia_EnfermedadEntity> idHistoriaEnfermedad;
@@ -51,7 +47,7 @@ public class Historia_ClinicaEntity {
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idGrupoFamiliar", referencedColumnName = "idGrupoFamiliar")
-    private PersonaEntity idGrupoFamiliar;
+    private Grupo_FamiliarEntity idGrupoFamiliar;
     
     private String referencia;
     private String transtorno;
@@ -59,6 +55,11 @@ public class Historia_ClinicaEntity {
     private String conflicto;
     private String atencionPrevia;
 
+    
+    public void setIdHistoriaEnfermedad(List<Historia_EnfermedadEntity> idHistoriaEnfermedad) {
+		this.idHistoriaEnfermedad = idHistoriaEnfermedad;
+	}
+    
     public Long getIdHistoriaClinica() {
         return idHistoriaClinica;
     }
@@ -95,11 +96,11 @@ public class Historia_ClinicaEntity {
 		this.idHistoriaSocial = idHistoriaSocial;
 	}
 
-	public PersonaEntity getIdGrupoFamiliar() {
+	public Grupo_FamiliarEntity getIdGrupoFamiliar() {
 		return idGrupoFamiliar;
 	}
 
-	public void setIdGrupoFamiliar(PersonaEntity idGrupoFamiliar) {
+	public void setIdGrupoFamiliar(Grupo_FamiliarEntity idGrupoFamiliar) {
 		this.idGrupoFamiliar = idGrupoFamiliar;
 	}
 

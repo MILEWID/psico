@@ -20,12 +20,9 @@ public class Historia_ClinicaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idHistoriaClinica;
-    private Long idHistoriaEnfermedad;
     private Long idAnamnesis;
-    private Long idGrupoFamiliar;
     private Long idCita;
     private Long idFuncionPsiquica;
-    private Long idHistoriaLaboral;
     private Long idHistoraSocial;
     @OneToMany(mappedBy = "historiacli")
     private List<diagnosticoEntity> idDiagnostico;
@@ -33,9 +30,28 @@ public class Historia_ClinicaEntity {
     @OneToMany(mappedBy = "historiaclin")
     private List<planesEntity> idPlan;
     
+    public void setIdHistoriaEnfermedad(List<Historia_EnfermedadEntity> idHistoriaEnfermedad) {
+		this.idHistoriaEnfermedad = idHistoriaEnfermedad;
+	}
+
+	@OneToMany(mappedBy = "historiaclini")
+    private List<Historia_EnfermedadEntity> idHistoriaEnfermedad;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
     private PersonaEntity idPersona;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idHistoriaLaboral", referencedColumnName = "idHistoriaLaboral")
+    private Historia_LaboralEntity idHistoriaLaboral;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idHistoriaSocial", referencedColumnName = "idHistoriaSocial")
+    private Historia_SocialEntity idHistoriaSocial;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idGrupoFamiliar", referencedColumnName = "idGrupoFamiliar")
+    private PersonaEntity idGrupoFamiliar;
     
     private String referencia;
     private String transtorno;
@@ -51,15 +67,11 @@ public class Historia_ClinicaEntity {
         this.idHistoriaClinica = idHistoriaClinica;
     }
 
-    public Long getIdHistoriaEnfermedad() {
-        return idHistoriaEnfermedad;
-    }
+    public List<Historia_EnfermedadEntity> getIdHistoriaEnfermedad() {
+		return idHistoriaEnfermedad;
+	}
 
-    public void setIdHistoriaEnfermedad(Long idHistoriaEnfermedad) {
-        this.idHistoriaEnfermedad = idHistoriaEnfermedad;
-    }
-
-    public Long getIdAnamnesis() {
+	public Long getIdAnamnesis() {
         return idAnamnesis;
     }
 
@@ -67,15 +79,31 @@ public class Historia_ClinicaEntity {
         this.idAnamnesis = idAnamnesis;
     }
 
-    public Long getIdGrupoFamiliar() {
-        return idGrupoFamiliar;
-    }
+    public Historia_LaboralEntity getIdHistoriaLaboral() {
+		return idHistoriaLaboral;
+	}
 
-    public void setIdGrupoFamiliar(Long idGrupoFamiliar) {
-        this.idGrupoFamiliar = idGrupoFamiliar;
-    }
+	public void setIdHistoriaLaboral(Historia_LaboralEntity idHistoriaLaboral) {
+		this.idHistoriaLaboral = idHistoriaLaboral;
+	}
 
-    public Long getIdCita() {
+	public Historia_SocialEntity getIdHistoriaSocial() {
+		return idHistoriaSocial;
+	}
+
+	public void setIdHistoriaSocial(Historia_SocialEntity idHistoriaSocial) {
+		this.idHistoriaSocial = idHistoriaSocial;
+	}
+
+	public PersonaEntity getIdGrupoFamiliar() {
+		return idGrupoFamiliar;
+	}
+
+	public void setIdGrupoFamiliar(PersonaEntity idGrupoFamiliar) {
+		this.idGrupoFamiliar = idGrupoFamiliar;
+	}
+
+	public Long getIdCita() {
         return idCita;
     }
 
@@ -89,14 +117,6 @@ public class Historia_ClinicaEntity {
 
     public void setIdFuncionPsiquica(Long idFuncionPsiquica) {
         this.idFuncionPsiquica = idFuncionPsiquica;
-    }
-
-    public Long getIdHistoriaLaboral() {
-        return idHistoriaLaboral;
-    }
-
-    public void setIdHistoriaLaboral(Long idHistoriaLaboral) {
-        this.idHistoriaLaboral = idHistoriaLaboral;
     }
 
     public Long getIdHistoraSocial() {

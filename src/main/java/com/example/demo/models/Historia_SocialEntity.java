@@ -19,7 +19,18 @@ public class Historia_SocialEntity {
     private Long idHistoraSocial;
     private String descripcion;
 
-    public Long getIdHistoraSocial() {
+    @OneToOne(mappedBy = "idHistoriaSocial")
+    private Historia_ClinicaEntity idHistoriaClinica;
+    
+    public Historia_ClinicaEntity getIdHistoriaClinica() {
+		return idHistoriaClinica;
+	}
+
+	public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
+		this.idHistoriaClinica = idHistoriaClinica;
+	}
+
+	public Long getIdHistoraSocial() {
         return idHistoraSocial;
     }
 

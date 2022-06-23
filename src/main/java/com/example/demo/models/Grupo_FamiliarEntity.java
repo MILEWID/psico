@@ -20,7 +20,18 @@ public class Grupo_FamiliarEntity {
     private String familiaOrigen;
     private String familiaPropio;
 
-    public Long getIdGrupoFamiliar() {
+    @OneToOne(mappedBy = "idGrupoFamiliar")
+    private Historia_ClinicaEntity idHistoriaClinica;
+    
+    public Historia_ClinicaEntity getIdHistoriaClinica() {
+		return idHistoriaClinica;
+	}
+
+	public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
+		this.idHistoriaClinica = idHistoriaClinica;
+	}
+
+	public Long getIdGrupoFamiliar() {
         return idGrupoFamiliar;
     }
 

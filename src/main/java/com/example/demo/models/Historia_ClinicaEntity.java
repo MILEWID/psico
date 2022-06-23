@@ -21,16 +21,15 @@ public class Historia_ClinicaEntity {
     @Column(unique = true, nullable = false)
     private Long idHistoriaClinica;
 
-    private Long idHistoriaEnfermedad;
+ 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAnamnesis", referencedColumnName = "idAnamnesis")
     private AnamnesisEntity idAnamnesis;
     
-    private Long idGrupoFamiliar;
+
 
 
     private Long idFuncionPsiquica;
-    private Long idHistoraSocial;
     @OneToMany(mappedBy = "historiacli")
     private List<diagnosticoEntity> idDiagnostico;
     
@@ -65,11 +64,6 @@ public class Historia_ClinicaEntity {
     private String conflicto;
     private String atencionPrevia;
 
-    
-    public void setIdHistoriaEnfermedad(List<Historia_EnfermedadEntity> idHistoriaEnfermedad) {
-		this.idHistoriaEnfermedad = idHistoriaEnfermedad;
-	}
-    
     public Long getIdHistoriaClinica() {
         return idHistoriaClinica;
     }
@@ -78,32 +72,13 @@ public class Historia_ClinicaEntity {
         this.idHistoriaClinica = idHistoriaClinica;
     }
 
-    public List<Historia_EnfermedadEntity> getIdHistoriaEnfermedad() {
-		return idHistoriaEnfermedad;
-	}
-
-
-
-    public Long getIdGrupoFamiliar() {
-        return idGrupoFamiliar;
+    public AnamnesisEntity getIdAnamnesis() {
+        return idAnamnesis;
     }
 
-
-	public void setIdHistoriaLaboral(Historia_LaboralEntity idHistoriaLaboral) {
-		this.idHistoriaLaboral = idHistoriaLaboral;
-	}
-
-	public Historia_SocialEntity getIdHistoriaSocial() {
-		return idHistoriaSocial;
-	}
-
-	public void setIdHistoriaSocial(Historia_SocialEntity idHistoriaSocial) {
-		this.idHistoriaSocial = idHistoriaSocial;
-	}
-
-	public Grupo_FamiliarEntity getIdGrupoFamiliar() {
-		return idGrupoFamiliar;
-	}
+    public void setIdAnamnesis(AnamnesisEntity idAnamnesis) {
+        this.idAnamnesis = idAnamnesis;
+    }
 
     public Long getIdFuncionPsiquica() {
         return idFuncionPsiquica;
@@ -111,14 +86,6 @@ public class Historia_ClinicaEntity {
 
     public void setIdFuncionPsiquica(Long idFuncionPsiquica) {
         this.idFuncionPsiquica = idFuncionPsiquica;
-    }
-
-    public Long getIdHistoraSocial() {
-        return idHistoraSocial;
-    }
-
-    public void setIdHistoraSocial(Long idHistoraSocial) {
-        this.idHistoraSocial = idHistoraSocial;
     }
 
     public List<diagnosticoEntity> getIdDiagnostico() {
@@ -137,12 +104,52 @@ public class Historia_ClinicaEntity {
         this.idPlan = idPlan;
     }
 
+    public List<Historia_EnfermedadEntity> getIdHistoriaEnfermedad() {
+        return idHistoriaEnfermedad;
+    }
+
+    public void setIdHistoriaEnfermedad(List<Historia_EnfermedadEntity> idHistoriaEnfermedad) {
+        this.idHistoriaEnfermedad = idHistoriaEnfermedad;
+    }
+
+    public List<CitaEntity> getCita() {
+        return cita;
+    }
+
+    public void setCita(List<CitaEntity> cita) {
+        this.cita = cita;
+    }
+
     public PersonaEntity getIdPersona() {
         return idPersona;
     }
 
     public void setIdPersona(PersonaEntity idPersona) {
         this.idPersona = idPersona;
+    }
+
+    public Historia_LaboralEntity getIdHistoriaLaboral() {
+        return idHistoriaLaboral;
+    }
+
+    public void setIdHistoriaLaboral(Historia_LaboralEntity idHistoriaLaboral) {
+        this.idHistoriaLaboral = idHistoriaLaboral;
+    }
+
+    public Historia_SocialEntity getIdHistoriaSocial() {
+        return idHistoriaSocial;
+    }
+
+    public void setIdHistoriaSocial(Historia_SocialEntity idHistoriaSocial) {
+        this.idHistoriaSocial = idHistoriaSocial;
+    }
+
+    public Grupo_FamiliarEntity getIdGrupoFamiliar() {
+        return idGrupoFamiliar;
+    }
+
+    public void setIdGrupoFamiliar(Grupo_FamiliarEntity idGrupoFamiliar) {
+        this.idGrupoFamiliar = idGrupoFamiliar;
     }
 
     public String getReferencia() {
@@ -185,20 +192,6 @@ public class Historia_ClinicaEntity {
         this.atencionPrevia = atencionPrevia;
     }
 
-	public List<CitaEntity> getCita() {
-		return cita;
-	}
-
-	public void setCita(List<CitaEntity> cita) {
-		this.cita = cita;
-	}
-
-    public AnamnesisEntity getIdAnamnesis() {
-        return idAnamnesis;
-    }
-
-    public void setIdAnamnesis(AnamnesisEntity idAnamnesis) {
-        this.idAnamnesis = idAnamnesis;
-    }
     
+ 
 }

@@ -51,4 +51,102 @@ public class PersonaEntity {
     @JoinColumn(name = "idDireccion", referencedColumnName = "idDireccion")
     private PersonaDireccionEntity idDireccion;
 
+    public Long getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(Long idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    public Historia_ClinicaEntity getIdHistoriaClinica() {
+        return idHistoriaClinica;
+    }
+
+    public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
+        this.idHistoriaClinica = idHistoriaClinica;
+    }
+
+    public PersonaNombreEntity getIdNombre() {
+        return idNombre;
+    }
+
+    public void setIdNombre(PersonaNombreEntity idNombre) {
+        this.idNombre = idNombre;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getReligion() {
+        return religion;
+    }
+
+    public void setReligion(String religion) {
+        this.religion = religion;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public List<ContactosEntity> getContactos() {
+        return contactos;
+    }
+
+    public void setContactos(List<ContactosEntity> contactos) {
+        this.contactos = contactos;
+    }
+
+    public List<CitaEntity> getCita() {
+        return cita;
+    }
+
+    public void setCita(List<CitaEntity> cita) {
+        this.cita = cita;
+    }
+
+    public TipoUsuarioEntity getIdTipoUsuario() {
+        return idTipoUsuario;
+    }
+
+    public void setIdTipoUsuario(TipoUsuarioEntity idTipoUsuario) {
+        this.idTipoUsuario = idTipoUsuario;
+    }
+
+    public PersonaDireccionEntity getIdDireccion() {
+        return idDireccion;
+    }
+
+    public void setIdDireccion(PersonaDireccionEntity idDireccion) {
+        this.idDireccion = idDireccion;
+    }
     
+    
+
+}

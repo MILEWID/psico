@@ -33,7 +33,7 @@ public class diagnosticoEntity {
     @OneToMany(mappedBy = "diag")
     private List<cieEntity> cie;
 
-    private Long idPlan;
+
 
     public Long getIddianogstico() {
         return iddianogstico;
@@ -75,12 +75,5 @@ public class diagnosticoEntity {
         this.cie = cie;
     }
 
-    public Long getIdPlan() {
-        return idPlan;
-    }
 
-    public void setIdPlan(Long idPlan) {
-        this.idPlan = idPlan;
-    }
-  
 }

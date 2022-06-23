@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 
 /**
  *
@@ -26,6 +28,8 @@ public class ContactosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idContacto;
+    
+    @NotEmpty(message = "El telefono no puede estar vacio")
     private String telefono;
     private String descripcion;
     

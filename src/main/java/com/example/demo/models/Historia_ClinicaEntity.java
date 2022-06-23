@@ -23,7 +23,7 @@ public class Historia_ClinicaEntity {
     private Long idHistoriaEnfermedad;
     private Long idAnamnesis;
     private Long idGrupoFamiliar;
-    private Long idCita;
+
     private Long idFuncionPsiquica;
     private Long idHistoriaLaboral;
     private Long idHistoraSocial;
@@ -32,6 +32,9 @@ public class Historia_ClinicaEntity {
     
     @OneToMany(mappedBy = "historiaclin")
     private List<planesEntity> idPlan;
+    
+    @OneToMany(mappedBy = "historiaclin")
+    private List<CitaEntity> cita;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
@@ -73,14 +76,6 @@ public class Historia_ClinicaEntity {
 
     public void setIdGrupoFamiliar(Long idGrupoFamiliar) {
         this.idGrupoFamiliar = idGrupoFamiliar;
-    }
-
-    public Long getIdCita() {
-        return idCita;
-    }
-
-    public void setIdCita(Long idCita) {
-        this.idCita = idCita;
     }
 
     public Long getIdFuncionPsiquica() {
@@ -170,6 +165,14 @@ public class Historia_ClinicaEntity {
     public void setAtencionPrevia(String atencionPrevia) {
         this.atencionPrevia = atencionPrevia;
     }
+
+	public List<CitaEntity> getCita() {
+		return cita;
+	}
+
+	public void setCita(List<CitaEntity> cita) {
+		this.cita = cita;
+	}
 
   
     

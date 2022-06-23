@@ -22,6 +22,9 @@ public class PersonaDireccionEntity {
     private String calleSecundaria;
     private int numero;
 
+    @OneToOne(mappedBy = "idDireccion")
+    private PersonaEntity idPersona;
+
     public Long getIdDireccion() {
         return idDireccion;
     }
@@ -52,5 +55,13 @@ public class PersonaDireccionEntity {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public PersonaEntity getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(PersonaEntity idPersona) {
+        this.idPersona = idPersona;
     }
 }

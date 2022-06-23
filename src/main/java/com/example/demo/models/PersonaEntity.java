@@ -25,6 +25,10 @@ public class PersonaEntity {
     @OneToOne(mappedBy = "idPersona")
     private Historia_ClinicaEntity idHistoriaClinica;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idNombre", referencedColumnName = "idNombre")
+    private PersonaNombreEntity idNombre;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date fechaNacimiento;
@@ -39,69 +43,12 @@ public class PersonaEntity {
     @OneToMany(mappedBy="idPersona")
     private List<CitaEntity> cita;
 
-    public Long getIdPersona() {
-        return idPersona;
-    }
+    @ManyToOne
+    @JoinColumn(name = "idTipoUsuario")
+    private TipoUsuarioEntity idTipoUsuario;
 
-    public void setIdPersona(Long idPersona) {
-        this.idPersona = idPersona;
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idDireccion", referencedColumnName = "idDireccion")
+    private PersonaDireccionEntity idDireccion;
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getReligion() {
-        return religion;
-    }
-
-    public void setReligion(String religion) {
-        this.religion = religion;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public Historia_ClinicaEntity getIdHistoriaClinica() {
-        return idHistoriaClinica;
-    }
-
-    public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
-        this.idHistoriaClinica = idHistoriaClinica;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-	public List<CitaEntity> getCita() {
-		return cita;
-	}
-
-	public void setCita(List<CitaEntity> cita) {
-		this.cita = cita;
-	}
     
-    
-}

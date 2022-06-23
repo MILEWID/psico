@@ -4,6 +4,7 @@
  */
 package com.example.demo.models;
 
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -20,6 +21,9 @@ public class TipoUsuarioEntity {
     private Long idTipoUsuario;
     private String descripcion;
 
+    @OneToMany(mappedBy = "idTipoUsuario")
+    private List<PersonaEntity> persona;
+
     public Long getIdTipoUsuario() {
         return idTipoUsuario;
     }
@@ -34,5 +38,13 @@ public class TipoUsuarioEntity {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public List<PersonaEntity> getPersona() {
+        return persona;
+    }
+
+    public void setPersona(List<PersonaEntity> persona) {
+        this.persona = persona;
     }
 }

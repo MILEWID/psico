@@ -40,6 +40,14 @@ public class PersonaEntity {
     @OneToMany(mappedBy = "idPersona")
     private List<ContactosEntity> contactos;
 
+    @ManyToOne
+    @JoinColumn(name = "idTipoUsuario")
+    private TipoUsuarioEntity idTipoUsuario;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idDireccion", referencedColumnName = "idDireccion")
+    private PersonaDireccionEntity idDireccion;
+
     public Long getIdPersona() {
         return idPersona;
     }
@@ -110,5 +118,21 @@ public class PersonaEntity {
 
     public void setContactos(List<ContactosEntity> contactos) {
         this.contactos = contactos;
+    }
+
+    public TipoUsuarioEntity getIdTipoUsuario() {
+        return idTipoUsuario;
+    }
+
+    public void setIdTipoUsuario(TipoUsuarioEntity idTipoUsuario) {
+        this.idTipoUsuario = idTipoUsuario;
+    }
+
+    public PersonaDireccionEntity getIdDireccion() {
+        return idDireccion;
+    }
+
+    public void setIdDireccion(PersonaDireccionEntity idDireccion) {
+        this.idDireccion = idDireccion;
     }
 }

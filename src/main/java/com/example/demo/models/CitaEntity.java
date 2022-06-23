@@ -23,8 +23,8 @@ public class CitaEntity {
 	private PersonaEntity idPersona;
 	
 	@ManyToOne
-	@JoinColumn(name="historiaclin")
-	private Historia_ClinicaEntity idHistoriaClinica;
+	@JoinColumn(name="idHistoriaClinica")
+	private Historia_ClinicaEntity historiaclin;
 	
 	public Long getIdCita() {
 		return idCita;
@@ -39,11 +39,12 @@ public class CitaEntity {
 		this.idHorario = idHorario;
 	}
 	
-	public Historia_ClinicaEntity getIdHistoriaClinica() {
-		return idHistoriaClinica;
+	
+	public Historia_ClinicaEntity getHistoriaclin() {
+		return historiaclin;
 	}
-	public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
-		this.idHistoriaClinica = idHistoriaClinica;
+	public void setHistoriaclin(Historia_ClinicaEntity historiaclin) {
+		this.historiaclin = historiaclin;
 	}
 	public PersonaEntity getIdPersona() {
 		return idPersona;

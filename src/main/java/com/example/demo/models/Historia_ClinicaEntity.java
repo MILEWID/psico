@@ -20,8 +20,15 @@ public class Historia_ClinicaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idHistoriaClinica;
-    private Long idAnamnesis;
-    private Long idCita;
+
+    private Long idHistoriaEnfermedad;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAnamnesis", referencedColumnName = "idAnamnesis")
+    private AnamnesisEntity idAnamnesis;
+    
+    private Long idGrupoFamiliar;
+
+
     private Long idFuncionPsiquica;
     private Long idHistoraSocial;
     @OneToMany(mappedBy = "historiacli")
@@ -32,6 +39,9 @@ public class Historia_ClinicaEntity {
 
 	@OneToMany(mappedBy = "historiaclini")
     private List<Historia_EnfermedadEntity> idHistoriaEnfermedad;
+    
+    @OneToMany(mappedBy = "historiaclin")
+    private List<CitaEntity> cita;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
@@ -72,17 +82,12 @@ public class Historia_ClinicaEntity {
 		return idHistoriaEnfermedad;
 	}
 
-	public Long getIdAnamnesis() {
-        return idAnamnesis;
+
+
+    public Long getIdGrupoFamiliar() {
+        return idGrupoFamiliar;
     }
 
-    public void setIdAnamnesis(Long idAnamnesis) {
-        this.idAnamnesis = idAnamnesis;
-    }
-
-    public Historia_LaboralEntity getIdHistoriaLaboral() {
-		return idHistoriaLaboral;
-	}
 
 	public void setIdHistoriaLaboral(Historia_LaboralEntity idHistoriaLaboral) {
 		this.idHistoriaLaboral = idHistoriaLaboral;
@@ -99,18 +104,6 @@ public class Historia_ClinicaEntity {
 	public Grupo_FamiliarEntity getIdGrupoFamiliar() {
 		return idGrupoFamiliar;
 	}
-
-	public void setIdGrupoFamiliar(Grupo_FamiliarEntity idGrupoFamiliar) {
-		this.idGrupoFamiliar = idGrupoFamiliar;
-	}
-
-	public Long getIdCita() {
-        return idCita;
-    }
-
-    public void setIdCita(Long idCita) {
-        this.idCita = idCita;
-    }
 
     public Long getIdFuncionPsiquica() {
         return idFuncionPsiquica;
@@ -192,7 +185,20 @@ public class Historia_ClinicaEntity {
         this.atencionPrevia = atencionPrevia;
     }
 
-  
-    
+	public List<CitaEntity> getCita() {
+		return cita;
+	}
+
+	public void setCita(List<CitaEntity> cita) {
+		this.cita = cita;
+	}
+
+    public AnamnesisEntity getIdAnamnesis() {
+        return idAnamnesis;
+    }
+
+    public void setIdAnamnesis(AnamnesisEntity idAnamnesis) {
+        this.idAnamnesis = idAnamnesis;
+    }
     
 }

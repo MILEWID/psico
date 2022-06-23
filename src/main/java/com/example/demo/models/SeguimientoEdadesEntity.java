@@ -18,6 +18,10 @@ public class SeguimientoEdadesEntity {
     private Long id_seguimiento;
     private String nombre;
     private String descripcion;
+    
+    @ManyToOne
+    @JoinColumn(name = "idAnamnesis")
+    private AnamnesisEntity idAnamnesis;
 
     public Long getId_seguimiento() {
         return id_seguimiento;
@@ -42,6 +46,14 @@ public class SeguimientoEdadesEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+    public AnamnesisEntity getIdAnamnesis() {
+        return idAnamnesis;
+    }
+
+    public void setIdAnamnesis(AnamnesisEntity idAnamnesis) {
+        this.idAnamnesis = idAnamnesis;
+    }
+
     
 }

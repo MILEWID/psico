@@ -35,6 +35,9 @@ public class PersonaEntity {
     
     @OneToMany(mappedBy = "idPersona")
     private List<ContactosEntity> contactos;
+    
+    @OneToMany(mappedBy="idPersona")
+    private List<CitaEntity> cita;
 
     public Long getIdPersona() {
         return idPersona;
@@ -91,4 +94,14 @@ public class PersonaEntity {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+	public List<CitaEntity> getCita() {
+		return cita;
+	}
+
+	public void setCita(List<CitaEntity> cita) {
+		this.cita = cita;
+	}
+    
+    
 }

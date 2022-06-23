@@ -4,6 +4,7 @@
  */
 package com.example.demo.models;
 
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -18,9 +19,14 @@ public class AnamnesisEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idAnamnesis;
-    private Long id_seguimiento;
     private int edad;
     private String descripcion;
+    
+    @OneToOne(mappedBy = "idAnamnesis")
+    private Historia_ClinicaEntity idHistoriaClinica;
+    
+    @OneToMany(mappedBy = "id_seguimiento")
+    private List<SeguimientoEdadesEntity> seguimientos;
 
     public Long getIdAnamnesis() {
         return idAnamnesis;
@@ -28,14 +34,6 @@ public class AnamnesisEntity {
 
     public void setIdAnamnesis(Long idAnamnesis) {
         this.idAnamnesis = idAnamnesis;
-    }
-
-    public Long getId_seguimiento() {
-        return id_seguimiento;
-    }
-
-    public void setId_seguimiento(Long id_seguimiento) {
-        this.id_seguimiento = id_seguimiento;
     }
 
     public int getEdad() {

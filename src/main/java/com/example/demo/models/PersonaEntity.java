@@ -37,6 +37,10 @@ public class PersonaEntity {
     private String religion;
     private String correo;
     
+    @ManyToOne
+    @JoinColumn(name = "idOcupacion")
+    private OcupacionesEntity idOcupacion;
+    
     @OneToMany(mappedBy = "idPersona")
     private List<ContactosEntity> contactos;
     
@@ -145,6 +149,14 @@ public class PersonaEntity {
 
     public void setIdDireccion(PersonaDireccionEntity idDireccion) {
         this.idDireccion = idDireccion;
+    }
+
+    public OcupacionesEntity getIdOcupacion() {
+        return idOcupacion;
+    }
+
+    public void setIdOcupacion(OcupacionesEntity idOcupacion) {
+        this.idOcupacion = idOcupacion;
     }
     
     

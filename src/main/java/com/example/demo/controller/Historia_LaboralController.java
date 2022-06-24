@@ -33,11 +33,11 @@ public class Historia_LaboralController {
 	}
 	
 	@PostMapping()
-		public Historia_LaboralEntity guardarfp(@RequestBody Historia_LaboralEntity funcion) {
+		public Historia_LaboralEntity guardar(@RequestBody Historia_LaboralEntity funcion) {
 			return this.hl.guardar(funcion);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarfp(@PathVariable("id") Long id){
+                  public String eliminar(@PathVariable("id") Long id){
                       boolean ok = this.hl.eliminar(id);
             if(ok){
                 return "Historia Laboral se eliminó correctamente ";
@@ -50,4 +50,14 @@ public class Historia_LaboralController {
 	 public Optional<Historia_LaboralEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.hl.obtenerPorId(id);
 	}
+	 
+	 @GetMapping(path="/verificar/{id}")
+		public String verificarHistoria_Laboral(@PathVariable("id")Long id){
+			boolean ok=this.hl.verificarHistoria_Laboral(id);
+			if(ok) {
+				return "Historia Laboral existe";
+			}else {
+				return "Historia Laboral no existe";
+			}
+		}
 }

@@ -33,11 +33,11 @@ public class Historia_SocialController {
 	}
 	
 	@PostMapping()
-		public Historia_SocialEntity guardarfp(@RequestBody Historia_SocialEntity funcion) {
+		public Historia_SocialEntity guardar(@RequestBody Historia_SocialEntity funcion) {
 			return this.hs.guardar(funcion);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarfp(@PathVariable("id") Long id){
+                  public String eliminar(@PathVariable("id") Long id){
                       boolean ok = this.hs.eliminar(id);
             if(ok){
                 return "La Historia Social se eliminó correctamente ";
@@ -50,4 +50,14 @@ public class Historia_SocialController {
 	 public Optional<Historia_SocialEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.hs.obtenerPorId(id);
 	}
+	 
+	 @GetMapping(path="/verificar/{id}")
+		public String verificarHistoria_Social(@PathVariable("id")Long id){
+			boolean ok=this.hs.verificarHistoria_Social(id);
+			if(ok) {
+				return "Historia Social existe";
+			}else {
+				return "Historia Social no existe";
+			}
+		} 
 }

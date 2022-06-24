@@ -23,14 +23,6 @@ public class Historia_LaboralEntity {
     @OneToOne(mappedBy = "idHistoriaLaboral")
     private Historia_ClinicaEntity idHistoriaClinica;
 
-	public Historia_ClinicaEntity getIdHistoriaClinica() {
-		return idHistoriaClinica;
-	}
-
-	public void setIdHistoriaClinica(Historia_ClinicaEntity idHistoriaClinica) {
-		this.idHistoriaClinica = idHistoriaClinica;
-	}
-
 	public String getDescripcion() {
 		return descripcion;
 	}

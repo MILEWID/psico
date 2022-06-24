@@ -42,4 +42,14 @@ public class HorarioController {
 	public Optional<HorarioEntity> obtenerPorId(@PathVariable("id") Long id){
 		return this.horario.obtenerPorId(id);
 	}
+	
+	@GetMapping(path="/verificar/{id}")
+	public String verificarHorario(@PathVariable("id")Long id){
+		boolean ok=this.horario.verificarHorario(id);
+		if(ok) {
+			return "El horario existe";
+		}else {
+			return "El horario no existe";
+		}
+	}
 }

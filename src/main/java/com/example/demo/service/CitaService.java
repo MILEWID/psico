@@ -36,5 +36,13 @@ public class CitaService {
 		}
 	}
 	
+	public boolean verificarCita(Long id) {
+		try {
+			cita.findById(id);
+			return true;
+		}catch(Exception err) {
+			return false;
+		}
+	}
 
 }

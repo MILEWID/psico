@@ -41,4 +41,14 @@ public class OcupacionesController {
 	public Optional<OcupacionesEntity> obtenerPorId(@PathVariable("id") Long id){
 		return this.ocupacion.obtenerPorId(id);
 	}
+	
+	@GetMapping(path="/verificar/{id}")
+	public String verificarOcupaciones(@PathVariable("id")Long id) {
+		boolean ok=this.ocupacion.verificarOcupaciones(id);
+		if(ok) {
+			return "La ocupación existe";
+		}else {
+			return "La ocupación no existe";
+		}
+	}
 }

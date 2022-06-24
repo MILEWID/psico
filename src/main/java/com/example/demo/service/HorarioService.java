@@ -35,4 +35,13 @@ public class HorarioService {
 			return false;
 		}
 	}
+	
+	public boolean verificarHorario(Long id) {
+		try {
+			horario.findById(id);
+			return true;
+		}catch(Exception err) {
+			return false;
+		}
+	}
 }

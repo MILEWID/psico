@@ -42,4 +42,14 @@ public class CitaController {
 	public Optional<CitaEntity> obtenerCitaPorId(@PathVariable("id") Long id){
 		return this.cita.obtenerPorId(id);
 	}
+	
+	@GetMapping(path="/verificar/{id}")
+	public String verificarCita(@PathVariable("id")Long id){
+		boolean ok=this.cita.verificarCita(id);
+		if(ok) {
+			return "La cita existe";
+		}else {
+			return "La cita no existe";
+		}
+	}
 }

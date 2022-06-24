@@ -37,11 +37,10 @@ public class OcupacionesService {
 	}
 	
 	public boolean verificarOcupaciones(Long id) {
-		try {
-			ocupacion.findById(id);
-			return true;
-		}catch(Exception err) {
+		if (ocupacion.findById(id).isEmpty()) {
 			return false;
+		}else {
+			return true;
 		}
 	}
 

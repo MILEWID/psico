@@ -37,11 +37,10 @@ public class CitaService {
 	}
 	
 	public boolean verificarCita(Long id) {
-		try {
-			cita.findById(id);
-			return true;
-		}catch(Exception err) {
+		if (cita.findById(id).isEmpty()) {
 			return false;
+		}else {
+			return true;
 		}
 	}
 

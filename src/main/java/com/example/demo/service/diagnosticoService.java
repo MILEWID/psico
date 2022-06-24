@@ -39,4 +39,8 @@ public class diagnosticoService {
                 return false;
             }
         }
+        public Long obtenerCount() {
+        return dia.count();
+}
+      
 }

@@ -50,4 +50,8 @@ public class diagnosticoController {
 	 public Optional<diagnosticoEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.dia.obtenerPorId(id);
 	}
+        @GetMapping(path ="/total")
+         public String obtenertotal() {
+		return this.dia.obtenerCount().toString();
+	}
 }

@@ -61,4 +61,9 @@ public class Historia_ClinicaController {
 			return "La historia " + id + " no existe";
 		}
 	}
+        
+        @GetMapping(path ="/total")
+        public String obtenertotal() {
+            return "El total de historias clinicas es: " + this.hist.obtenerCount().toString();
+        }
 }

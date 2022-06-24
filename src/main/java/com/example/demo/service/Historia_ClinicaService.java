@@ -46,4 +46,8 @@ public class Historia_ClinicaService {
                     return true;
             }
 	}
+        
+        public Long obtenerCount() {
+            return hist.count();
+        }
 }

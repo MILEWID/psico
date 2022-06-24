@@ -36,5 +36,12 @@ public class CitaService {
 		}
 	}
 	
+	public boolean verificarCita(Long id) {
+		if (cita.findById(id).isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 
 }

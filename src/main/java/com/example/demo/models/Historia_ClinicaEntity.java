@@ -27,7 +27,7 @@ public class Historia_ClinicaEntity {
     private AnamnesisEntity idAnamnesis;
     
 
-     @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idFuncionPsiquica", referencedColumnName = "idFuncionPsiquica")
     private Funcion_PsiquicaEntity idFuncionPsiquica;
     @OneToMany(mappedBy = "historiacli")

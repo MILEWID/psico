@@ -35,5 +35,13 @@ public class OcupacionesService {
 			return false;
 		}
 	}
+	
+	public boolean verificarOcupaciones(Long id) {
+		if (ocupacion.findById(id).isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 
 }

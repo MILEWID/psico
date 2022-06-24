@@ -72,4 +72,5 @@ public class Historia_ClinicaController {
         public ArrayList<Historia_ClinicaEntity> obtenerporTranstorno(@RequestParam("transtorno") String transtorno) {
             return this.hist.obtenerporTranstorno(transtorno);
         }
+        
 }

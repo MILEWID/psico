@@ -31,6 +31,11 @@ public class PersonaService {
         public Optional<PersonaEntity> obtenerPorId(Long id) {
 		return person.findById(id);
 	}
+
+        public ArrayList<PersonaEntity> obtenerPorTipoUsuario(long idTipoUsuario){
+            return person.findByTipoUsuario(idTipoUsuario);
+        }
+
         public boolean eliminar(Long id){
             try{
                 person.deleteById(id);

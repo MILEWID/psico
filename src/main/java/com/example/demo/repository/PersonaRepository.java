@@ -7,6 +7,7 @@ package com.example.demo.repository;
 import com.example.demo.models.PersonaEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PersonaRepository extends CrudRepository<PersonaEntity , Long>{
-    
+    public abstract ArrayList<PersonaEntity> findByTipoUsuario(long idTipoUsuario);
 }

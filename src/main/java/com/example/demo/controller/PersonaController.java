@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -50,5 +51,10 @@ public class PersonaController {
         @GetMapping(path ="/{id}")
 	 public Optional<PersonaEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.person.obtenerPorId(id);
+	}   
+
+        @GetMapping(path ="/query")
+	 public ArrayList<PersonaEntity> obtenerPorTipoUsuario(@RequestParam("tipousuario") Long idTipoUsuario) {
+		return this.person.obtenerPorTipoUsuario(idTipoUsuario);
 	}
 }

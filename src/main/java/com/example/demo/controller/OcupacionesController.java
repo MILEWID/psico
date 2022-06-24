@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,4 +37,8 @@ public class OcupacionesController {
 		}
 	}
 
+	@GetMapping(path="/{id}")
+	public Optional<OcupacionesEntity> obtenerPorId(@PathVariable("id") Long id){
+		return this.ocupacion.obtenerPorId(id);
+	}
 }

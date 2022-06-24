@@ -4,6 +4,7 @@
  */
 package com.example.demo.models;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,9 +28,9 @@ public class cieEntity {
     private Long idcie;
     private String descripcion;
     
-    @ManyToOne
-    @JoinColumn(name = "id_diagnos")
-    private diagnosticoEntity diag;
+  
+     @OneToMany(mappedBy = "cie")
+    private List<diagnosticoEntity> dia;
 
     public Long getIdcie() {
         return idcie;
@@ -46,17 +48,7 @@ public class cieEntity {
         this.descripcion = descripcion;
     }
 
-    public diagnosticoEntity getDiag() {
-        return diag;
-    }
 
-    public void setDiag(diagnosticoEntity diag) {
-        this.diag = diag;
-    }
-
- 
-
- 
 
    
 

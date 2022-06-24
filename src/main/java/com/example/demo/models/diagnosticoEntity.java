@@ -30,10 +30,9 @@ public class diagnosticoEntity {
     @JoinColumn(name = "id_histcli")
     private Historia_ClinicaEntity historiacli;
     
-    @OneToMany(mappedBy = "diag")
-    private List<cieEntity> cie;
-
-
+    @ManyToOne
+    @JoinColumn(name = "id_cie")
+    private cieEntity cie;
 
     public Long getIddianogstico() {
         return iddianogstico;
@@ -67,13 +66,15 @@ public class diagnosticoEntity {
         this.historiacli = historiacli;
     }
 
-    public List<cieEntity> getCie() {
+    public cieEntity getCie() {
         return cie;
     }
 
-    public void setCie(List<cieEntity> cie) {
+    public void setCie(cieEntity cie) {
         this.cie = cie;
     }
+    
 
+   
 
 }

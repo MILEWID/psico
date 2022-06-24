@@ -39,7 +39,6 @@ public class CitaEntity {
 		this.idHorario = idHorario;
 	}
 	
-	
 	public Historia_ClinicaEntity getHistoriaclin() {
 		return historiaclin;
 	}

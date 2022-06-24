@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +37,19 @@ public class CitaController {
 			return "La cita no se eliminó";
 		}
 	}
-
+	
+	@GetMapping(path="/{id}")
+	public Optional<CitaEntity> obtenerCitaPorId(@PathVariable("id") Long id){
+		return this.cita.obtenerPorId(id);
+	}
+	
+	@GetMapping(path="/verificar/{id}")
+	public String verificarCita(@PathVariable("id")Long id){
+		boolean ok=this.cita.verificarCita(id);
+		if(ok) {
+			return "La cita existe";
+		}else {
+			return "La cita no existe";
+		}
+	}
 }

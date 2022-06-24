@@ -24,10 +24,12 @@ public class Historia_EnfermedadService {
 	public Historia_EnfermedadEntity guardar(Historia_EnfermedadEntity hee) {
 		return he.save(hee);
 	}
-        public Optional<Historia_EnfermedadEntity> obtenerPorId(Long id) {
+    
+	public Optional<Historia_EnfermedadEntity> obtenerPorId(Long id) {
 		return he.findById(id);
 	}
-        public boolean eliminar(Long id){
+    
+	public boolean eliminar(Long id){
             try{
                 he.deleteById(id);
                 return true;
@@ -36,4 +38,12 @@ public class Historia_EnfermedadService {
                 return false;
             }
         }
+	
+	public boolean verificarHistoria_Enfermedad(Long id) {
+		if (he.findById(id).isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

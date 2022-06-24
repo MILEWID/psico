@@ -33,11 +33,11 @@ public class Grupo_FamiliarController {
 	}
 	
 	@PostMapping()
-		public Grupo_FamiliarEntity guardarfp(@RequestBody Grupo_FamiliarEntity funcion) {
+		public Grupo_FamiliarEntity guardar(@RequestBody Grupo_FamiliarEntity funcion) {
 			return this.gf.guardar(funcion);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarfp(@PathVariable("id") Long id){
+                  public String eliminar(@PathVariable("id") Long id){
                       boolean ok = this.gf.eliminar(id);
             if(ok){
                 return "Grupo Familiar se eliminó correctamente ";
@@ -50,4 +50,14 @@ public class Grupo_FamiliarController {
 	 public Optional<Grupo_FamiliarEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.gf.obtenerPorId(id);
 	}
+	 
+	 @GetMapping(path="/verificar/{id}")
+		public String verificarGrupo_Familiar(@PathVariable("id")Long id){
+			boolean ok=this.gf.verificarGrupo_Familiar(id);
+			if(ok) {
+				return "Grupo Familiar existe";
+			}else {
+				return "Grupo Familiar no existe";
+			}
+		}
 }

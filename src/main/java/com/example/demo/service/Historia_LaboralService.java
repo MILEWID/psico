@@ -24,10 +24,12 @@ public class Historia_LaboralService {
 	public Historia_LaboralEntity guardar(Historia_LaboralEntity hle) {
 		return hl.save(hle);
 	}
-        public Optional<Historia_LaboralEntity> obtenerPorId(Long id) {
+    
+	public Optional<Historia_LaboralEntity> obtenerPorId(Long id) {
 		return hl.findById(id);
 	}
-        public boolean eliminar(Long id){
+    
+	public boolean eliminar(Long id){
             try{
                 hl.deleteById(id);
                 return true;
@@ -36,4 +38,14 @@ public class Historia_LaboralService {
                 return false;
             }
         }
+	
+	public boolean verificarHistoria_Laboral(Long id) {
+		if (hl.findById(id).isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+        
+        
 }

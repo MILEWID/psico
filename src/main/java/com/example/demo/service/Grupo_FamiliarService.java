@@ -24,10 +24,12 @@ public class Grupo_FamiliarService {
 	public Grupo_FamiliarEntity guardar(Grupo_FamiliarEntity gfe) {
 		return gf.save(gfe);
 	}
-        public Optional<Grupo_FamiliarEntity> obtenerPorId(Long id) {
+    
+	public Optional<Grupo_FamiliarEntity> obtenerPorId(Long id) {
 		return gf.findById(id);
 	}
-        public boolean eliminar(Long id){
+    
+	public boolean eliminar(Long id){
             try{
                 gf.deleteById(id);
                 return true;
@@ -36,4 +38,12 @@ public class Grupo_FamiliarService {
                 return false;
             }
         }
+	
+	public boolean verificarGrupo_Familiar(Long id) {
+		if (gf.findById(id).isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

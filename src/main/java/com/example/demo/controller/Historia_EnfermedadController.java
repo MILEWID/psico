@@ -33,11 +33,11 @@ public class Historia_EnfermedadController {
 	}
 	
 	@PostMapping()
-		public Historia_EnfermedadEntity guardarfp(@RequestBody Historia_EnfermedadEntity funcion) {
+		public Historia_EnfermedadEntity guardar(@RequestBody Historia_EnfermedadEntity funcion) {
 			return this.he.guardar(funcion);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarfp(@PathVariable("id") Long id){
+                  public String eliminar(@PathVariable("id") Long id){
                       boolean ok = this.he.eliminar(id);
             if(ok){
                 return "Historia Enfermedad se eliminó correctamente ";
@@ -50,4 +50,14 @@ public class Historia_EnfermedadController {
 	 public Optional<Historia_EnfermedadEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.he.obtenerPorId(id);
 	}
+	 
+	 @GetMapping(path="/verificar/{id}")
+		public String verificarHistoria_Enfermedad(@PathVariable("id")Long id){
+			boolean ok=this.he.verificarHistoria_Enfermedad(id);
+			if(ok) {
+				return "Historia Enfermedad existe";
+			}else {
+				return "Historia Enfermedad no existe";
+			}
+		}
 }

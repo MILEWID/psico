@@ -24,10 +24,13 @@ public class Historia_SocialService {
 	public Historia_SocialEntity guardar(Historia_SocialEntity hse) {
 		return hs.save(hse);
 	}
-        public Optional<Historia_SocialEntity> obtenerPorId(Long id) {
+    
+	
+	public Optional<Historia_SocialEntity> obtenerPorId(Long id) {
 		return hs.findById(id);
 	}
-        public boolean eliminar(Long id){
+    
+	public boolean eliminar(Long id){
             try{
                 hs.deleteById(id);
                 return true;
@@ -36,4 +39,12 @@ public class Historia_SocialService {
                 return false;
             }
         }
+	
+	public boolean verificarHistoria_Social(Long id) {
+		if (hs.findById(id).isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

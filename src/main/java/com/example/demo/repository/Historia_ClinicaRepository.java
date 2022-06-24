@@ -15,4 +15,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface Historia_ClinicaRepository extends CrudRepository<Historia_ClinicaEntity , Long>{
     public abstract ArrayList<Historia_ClinicaEntity> findBytranstorno(String transtorno);
+    public abstract ArrayList<Historia_ClinicaEntity> findByestado(String estado);
 }

@@ -63,6 +63,7 @@ public class Historia_ClinicaEntity {
     private String alergia;
     private String conflicto;
     private String atencionPrevia;
+    private String estado;
 
     public Long getIdHistoriaClinica() {
         return idHistoriaClinica;
@@ -190,6 +191,14 @@ public class Historia_ClinicaEntity {
 
     public void setAtencionPrevia(String atencionPrevia) {
         this.atencionPrevia = atencionPrevia;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
  

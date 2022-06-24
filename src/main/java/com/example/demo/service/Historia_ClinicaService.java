@@ -54,4 +54,8 @@ public class Historia_ClinicaService {
         public ArrayList<Historia_ClinicaEntity> obtenerporTranstorno(String transtorno){
             return hist.findBytranstorno(transtorno);
         }
+
+    public ArrayList<Historia_ClinicaEntity> obtenerporestado(String estado){
+            return hist.findByestado(estado);
+        }
 }

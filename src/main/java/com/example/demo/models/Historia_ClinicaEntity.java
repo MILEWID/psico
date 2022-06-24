@@ -64,7 +64,13 @@ public class Historia_ClinicaEntity {
     private String conflicto;
     private String atencionPrevia;
 
- 
+    public Long getIdHistoriaClinica() {
+        return idHistoriaClinica;
+    }
+
+    public void setIdHistoriaClinica(Long idHistoriaClinica) {
+        this.idHistoriaClinica = idHistoriaClinica;
+    }
 
     public AnamnesisEntity getIdAnamnesis() {
         return idAnamnesis;

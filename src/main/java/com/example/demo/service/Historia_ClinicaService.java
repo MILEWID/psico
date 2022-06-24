@@ -39,4 +39,11 @@ public class Historia_ClinicaService {
                 return false;
             }
         }
+        public boolean verificarHistoria(Long id) {
+            if (hist.findById(id).isEmpty()) {
+                    return false;
+            }else {
+                    return true;
+            }
+	}
 }

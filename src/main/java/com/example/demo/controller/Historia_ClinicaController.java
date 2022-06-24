@@ -51,4 +51,14 @@ public class Historia_ClinicaController {
 	 public Optional<Historia_ClinicaEntity> obtenerPorId(@PathVariable("id") Long id) {
 		return this.hist.obtenerPorId(id);
 	}
+         
+        @GetMapping(path="/verificar/{id}")
+	public String verificarHistoria(@PathVariable("id")Long id){
+		boolean ok=this.hist.verificarHistoria(id);
+		if(ok) {
+			return "La historia " + id + " existe";
+		}else {
+			return "La historia " + id + " no existe";
+		}
+	}
 }

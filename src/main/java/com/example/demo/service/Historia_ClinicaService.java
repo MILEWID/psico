@@ -50,4 +50,8 @@ public class Historia_ClinicaService {
         public Long obtenerCount() {
             return hist.count();
         }
+        
+        public ArrayList<Historia_ClinicaEntity> obtenerporTranstorno(String transtorno){
+            return hist.findBytranstorno(transtorno);
+        }
 }

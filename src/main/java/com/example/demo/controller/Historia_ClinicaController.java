@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -65,5 +66,10 @@ public class Historia_ClinicaController {
         @GetMapping(path ="/total")
         public String obtenertotal() {
             return "El total de historias clinicas es: " + this.hist.obtenerCount().toString();
+        }
+        
+        @GetMapping(path ="/transtorno")
+        public ArrayList<Historia_ClinicaEntity> obtenerporTranstorno(@RequestParam("transtorno") String transtorno) {
+            return this.hist.obtenerporTranstorno(transtorno);
         }
 }

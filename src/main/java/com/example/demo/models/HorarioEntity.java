@@ -13,6 +13,9 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 
@@ -32,8 +35,9 @@ public class HorarioEntity {
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
-	
-	private Long idMedico;
+    @ManyToOne
+    @JoinColumn(name = "idPersona")
+	private Long idPersona;
 	private String estado;
 	public Long getIdHorario() {
 		return idHorario;
@@ -41,24 +45,30 @@ public class HorarioEntity {
 	public void setIdHorario(Long idHorario) {
 		this.idHorario = idHorario;
 	}
-	public CitaEntity getIdCita() {
-		return idCita;
-	}
-	public void setIdCita(CitaEntity idCita) {
-		this.idCita = idCita;
-	}
+	
 	public Date getCreateDate() {
 		return createDate;
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Long getIdMedico() {
-		return idMedico;
-	}
-	public void setIdMedico(Long idMedico) {
-		this.idMedico = idMedico;
-	}
+
+    public CitaEntity getIdCita() {
+        return idCita;
+    }
+
+    public void setIdCita(CitaEntity idCita) {
+        this.idCita = idCita;
+    }
+
+    public Long getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(Long idPersona) {
+        this.idPersona = idPersona;
+    }
+
 	public String getEstado() {
 		return estado;
 	}

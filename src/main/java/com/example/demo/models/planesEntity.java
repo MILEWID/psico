@@ -23,29 +23,20 @@ public class planesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long iddianogstico;
-    private Long idcie;
+    private Long idplanes;
     private String descripcion;
-    private Long estado;
+    private Long tipo;
     
     @ManyToOne
     @JoinColumn(name = "id_histcli")
     private Historia_ClinicaEntity historiaclin;
 
-    public Long getIddianogstico() {
-        return iddianogstico;
+    public Long getIdplanes() {
+        return idplanes;
     }
 
-    public void setIddianogstico(Long iddianogstico) {
-        this.iddianogstico = iddianogstico;
-    }
-
-    public Long getIdcie() {
-        return idcie;
-    }
-
-    public void setIdcie(Long idcie) {
-        this.idcie = idcie;
+    public void setIdplanes(Long idplanes) {
+        this.idplanes = idplanes;
     }
 
     public String getDescripcion() {
@@ -56,23 +47,15 @@ public class planesEntity {
         this.descripcion = descripcion;
     }
 
-    public Long getEstado() {
-        return estado;
+    public Long getTipo() {
+        return tipo;
     }
 
-    public void setEstado(Long estado) {
-        this.estado = estado;
+    public void setTipo(Long tipo) {
+        this.tipo = tipo;
     }
 
-    public Historia_ClinicaEntity getHistoriaclin() {
-        return historiaclin;
-    }
-
-    public void setHistoriaclin(Historia_ClinicaEntity historiaclin) {
-        this.historiaclin = historiaclin;
-    }
-
-
+ 
     
 
 }

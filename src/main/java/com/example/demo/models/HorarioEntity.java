@@ -15,9 +15,6 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 
@@ -38,11 +35,8 @@ public class HorarioEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
 
-	
-	
 	@ManyToMany(mappedBy="idHorario")
 	private List<PersonaEntity> idPersona; 
-	
 
 	private String estado;
 	public Long getIdHorario() {

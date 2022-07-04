@@ -42,10 +42,7 @@ public class PersonaEntity {
     private OcupacionesEntity idOcupacion;
     
     @OneToMany(mappedBy = "idPersona")
-    private List<ContactosEntity> contactos;
-    
-  /*    @OneToMany(mappedBy = "idPersona")
-    private List<HorarioEntity> horario;*/
+    private List<ContactosEntity> contactos; 
     
     @OneToMany(mappedBy="idPersona")
     private List<CitaEntity> cita;

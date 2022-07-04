@@ -44,8 +44,8 @@ public class PersonaEntity {
     @OneToMany(mappedBy = "idPersona")
     private List<ContactosEntity> contactos;
     
-      @OneToMany(mappedBy = "idPersona")
-    private List<HorarioEntity> horario;
+  /*    @OneToMany(mappedBy = "idPersona")
+    private List<HorarioEntity> horario;*/
     
     @OneToMany(mappedBy="idPersona")
     private List<CitaEntity> cita;

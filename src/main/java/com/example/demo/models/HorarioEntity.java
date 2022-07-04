@@ -35,9 +35,9 @@ public class HorarioEntity {
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
-    @ManyToOne
+   /*  @ManyToOne
     @JoinColumn(name = "idPersona")
-	private Long idPersona;
+	private Long idPersona;*/
 	private String estado;
 	public Long getIdHorario() {
 		return idHorario;
@@ -61,13 +61,7 @@ public class HorarioEntity {
         this.idCita = idCita;
     }
 
-    public Long getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(Long idPersona) {
-        this.idPersona = idPersona;
-    }
+ 
 
 	public String getEstado() {
 		return estado;

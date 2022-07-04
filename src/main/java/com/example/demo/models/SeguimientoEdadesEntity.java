@@ -18,6 +18,10 @@ public class SeguimientoEdadesEntity {
     private Long id_seguimiento;
     private String nombre;
     private String descripcion;
+    
+    @ManyToOne
+    @JoinColumn(name = "anamnesis")
+    private AnamnesisEntity anamnesis;
 
     public Long getId_seguimiento() {
         return id_seguimiento;
@@ -42,9 +46,4 @@ public class SeguimientoEdadesEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
-    
 }

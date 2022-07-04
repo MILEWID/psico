@@ -1,14 +1,13 @@
 package com.example.demo.models;
 
 import java.sql.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -35,8 +34,9 @@ public class HorarioEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
 
-	@ManyToMany(mappedBy="idHorario")
-	private List<PersonaEntity> idPersona; 
+	@ManyToOne
+	@JoinColumn(name="idPersona")
+	private PersonaEntity idPersona; 
 
 	private String estado;
 	public Long getIdHorario() {
@@ -53,14 +53,12 @@ public class HorarioEntity {
 		this.createDate = createDate;
 	}
 
-	
-	public List<PersonaEntity> getIdPersona() {
+	public PersonaEntity getIdPersona() {
 		return idPersona;
 	}
-	public void setIdPersona(List<PersonaEntity> idPersona) {
+	public void setIdPersona(PersonaEntity idPersona) {
 		this.idPersona = idPersona;
 	}
-
 	public String getEstado() {
 		return estado;
 	}

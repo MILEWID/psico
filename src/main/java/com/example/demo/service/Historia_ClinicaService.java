@@ -4,7 +4,7 @@
  */
 package com.example.demo.service;
 import com.example.demo.models.Historia_ClinicaEntity;
-import com.example.demo.repository.Historia_ClinicaRepository;
+import com.example.demo.repository.HistoriaClinicaRepository;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class Historia_ClinicaService {
     @Autowired
-	Historia_ClinicaRepository hist;
+	HistoriaClinicaRepository hist;
 	
 	public ArrayList<Historia_ClinicaEntity> obtenerHistoriaClinica(){
 		return (ArrayList<Historia_ClinicaEntity> ) hist.findAll();
@@ -53,9 +53,5 @@ public class Historia_ClinicaService {
         
         public ArrayList<Historia_ClinicaEntity> obtenerporTranstorno(String transtorno){
             return hist.findBytranstorno(transtorno);
-        }
-
-    public ArrayList<Historia_ClinicaEntity> obtenerporestado(String estado){
-            return hist.findByestado(estado);
         }
 }

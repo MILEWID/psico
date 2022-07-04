@@ -13,6 +13,12 @@ import org.springframework.stereotype.Repository;
  * @author Usuario
  */
 @Repository
+<<<<<<< Updated upstream:src/main/java/com/example/demo/repository/Historia_ClinicaRepository.java
 public interface Historia_ClinicaRepository extends CrudRepository<Historia_ClinicaEntity , Long>{
     
+=======
+public interface HistoriaClinicaRepository extends CrudRepository<Historia_ClinicaEntity , Long>{
+    public abstract ArrayList<Historia_ClinicaEntity> findBytranstorno(String transtorno);
+    public abstract ArrayList<Historia_ClinicaEntity> findByestado(String estado);
+>>>>>>> Stashed changes:src/main/java/com/example/demo/repository/HistoriaClinicaRepository.java
 }

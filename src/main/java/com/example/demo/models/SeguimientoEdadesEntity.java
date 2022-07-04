@@ -42,6 +42,9 @@ public class SeguimientoEdadesEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     
 }

@@ -47,7 +47,7 @@ public class PersonaEntity {
     @OneToMany(mappedBy="idPersona")
     private List<CitaEntity> cita;
     
-    @ManyToMany(mappedBy="idPersona")
+    @OneToMany(mappedBy="idPersona")
 	private List<HorarioEntity> idHorario; 
 
     @ManyToOne

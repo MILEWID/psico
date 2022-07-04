@@ -36,7 +36,7 @@ public class HorarioEntity {
     private Date createDate;
 	
 	
-	@ManyToMany(mappedBy="horario")
+	@ManyToMany(mappedBy="idHorario")
 	private List<PersonaEntity> idPersona; 
 	
 	private String estado;

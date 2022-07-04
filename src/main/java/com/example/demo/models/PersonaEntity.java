@@ -46,6 +46,9 @@ public class PersonaEntity {
     
     @OneToMany(mappedBy="idPersona")
     private List<CitaEntity> cita;
+    
+    @ManyToMany(mappedBy="idPersona")
+	private List<HorarioEntity> idHorario; 
 
     @ManyToOne
     @JoinColumn(name = "idTipoUsuario")

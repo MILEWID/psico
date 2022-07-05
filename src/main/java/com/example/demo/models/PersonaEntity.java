@@ -32,6 +32,9 @@ public class PersonaEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date fechaNacimiento;
+    
+    private String cedula;
+    
     private String genero;
     private String estadoCivil;
     private String religion;
@@ -160,6 +163,14 @@ public class PersonaEntity {
 
     public void setIdOcupacion(OcupacionesEntity idOcupacion) {
         this.idOcupacion = idOcupacion;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
     
     

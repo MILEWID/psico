@@ -33,9 +33,9 @@ public class PersonaController {
 		return person.obtener();
 	}
 	
-	@PostMapping()
-		public PersonaEntity guardarperson(@RequestBody PersonaEntity persona) {
-			return this.person.guardar(persona);
+	@PostMapping()     
+	public String guardarperson(@RequestBody PersonaEntity persona) {
+            return this.person.guardar(persona);
 	}
         @DeleteMapping(path ="/{id}")
                   public String eliminarperson(@PathVariable("id") Long id){

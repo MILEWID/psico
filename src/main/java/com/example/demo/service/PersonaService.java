@@ -25,10 +25,10 @@ public class PersonaService {
 	public String guardar(PersonaEntity per) {
             if (validadorDeCedula(per.getCedula())){
                 person.save(per);
-                return "datos ingresados";
+                return "Datos ingresados";
             }
             else{
-                return "no se pudo ingresar los datos";
+                return "No se pudo ingresar los datos, verifique el número de cédula";
             }
 	}
         public Optional<PersonaEntity> obtenerPorId(Long id) {

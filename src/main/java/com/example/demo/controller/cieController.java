@@ -31,11 +31,23 @@ public class cieController {
 	public ArrayList<cieEntity> obtenerCie(){
 		return cie.obtener();
 	}
+        
+        @PostMapping()
+        public String  guardarCie(@RequestBody cieEntity funcion) {
+               Boolean b = false;
+              for (int i=0;i<cie.obtener().size() ;i++) {
+                  if (cie.obtener().get(i).getDescripcion().equals(funcion.getDescripcion())){
+                      b = true;
+                  }
+              }
+            if (b == true){
+                return "no se puede guardar cies repetidas ";
+            }else {
+              this.cie.guardar(funcion);
+               return  "se ha guardado correctamente ";
+            }
+        }
 	
-	@PostMapping()
-		public cieEntity guardarCie(@RequestBody cieEntity funcion) {
-			return this.cie.guardar(funcion);
-	}
         @DeleteMapping(path ="/{id}")
                   public String eliminarCie(@PathVariable("id") Long id){
                       boolean ok = this.cie.eliminar(id);

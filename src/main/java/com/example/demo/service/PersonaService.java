@@ -6,15 +6,12 @@ package com.example.demo.service;
 
 import com.example.demo.models.PersonaEntity;
 import com.example.demo.repository.PersonaRepository;
+import com.example.demo.models.Historia_ClinicaEntity;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author USUARIO
- */
 
 @Service
 public class PersonaService {
@@ -22,7 +19,7 @@ public class PersonaService {
 	PersonaRepository person;
 	
 	public ArrayList<PersonaEntity> obtener(){
-		return (ArrayList<PersonaEntity> ) person.findAll();
+            return (ArrayList<PersonaEntity> ) person.findAll();
 	}
 	      
 	public String guardar(PersonaEntity per) {

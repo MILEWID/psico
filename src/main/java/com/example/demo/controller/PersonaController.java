@@ -6,6 +6,8 @@ package com.example.demo.controller;
 
 import com.example.demo.models.PersonaEntity;
 import com.example.demo.service.PersonaService;
+import com.example.demo.models.Historia_ClinicaEntity;
+import com.example.demo.service.Historia_ClinicaService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +40,8 @@ public class PersonaController {
             return this.person.guardar(persona);
 	}
         @DeleteMapping(path ="/{id}")
-                  public String eliminarperson(@PathVariable("id") Long id){
-                      boolean ok = this.person.eliminar(id);
+        public String eliminarperson(@PathVariable("id") Long id){
+            boolean ok = this.person.eliminar(id);
             if(ok){
                 return "Los datos de la persona se eliminó correctamente ";
             }

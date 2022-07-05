@@ -73,8 +73,4 @@ public class Historia_ClinicaController {
             return this.hist.obtenerporTranstorno(transtorno);
         }
         
-    @GetMapping(path ="/estado")
-        public ArrayList<Historia_ClinicaEntity> obtenerporestado(@RequestParam("estado") String estado) {
-            return this.hist.obtenerporestado(estado);
-        }
 }

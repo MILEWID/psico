@@ -51,6 +51,14 @@ public class AnamnesisEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public List<SeguimientoEdadesEntity> getSeguimientos() {
+        return seguimientos;
+    }
+
+    public void setSeguimientos(List<SeguimientoEdadesEntity> seguimientos) {
+        this.seguimientos = seguimientos;
+    }
     
     
     

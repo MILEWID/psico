@@ -46,14 +46,5 @@ public class SeguimientoEdadesEntity {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public AnamnesisEntity getIdAnamnesis() {
-        return idAnamnesis;
-    }
-
-    public void setIdAnamnesis(AnamnesisEntity idAnamnesis) {
-        this.idAnamnesis = idAnamnesis;
-    }
-
     
 }

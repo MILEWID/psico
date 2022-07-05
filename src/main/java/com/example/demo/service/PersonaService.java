@@ -22,15 +22,16 @@ public class PersonaService {
             return (ArrayList<PersonaEntity> ) person.findAll();
 	}
 	      
-	public String guardar(PersonaEntity per) {
+	public boolean guardar(PersonaEntity per) {
             if (validadorDeCedula(per.getCedula())){
                 person.save(per);
-                return "Datos ingresados";
+                return true;
             }
             else{
-                return "No se pudo ingresar los datos, verifique el número de cédula";
+                return false;
             }
 	}
+
         public Optional<PersonaEntity> obtenerPorId(Long id) {
 		return person.findById(id);
 	}

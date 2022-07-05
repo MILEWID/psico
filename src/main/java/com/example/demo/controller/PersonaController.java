@@ -35,10 +35,27 @@ public class PersonaController {
 		return person.obtener();
 	}
 	
-	@PostMapping()     
-	public String guardarperson(@RequestBody PersonaEntity persona) {
-            return this.person.guardar(persona);
-	}
+        @PostMapping()
+        public String  guardarPersona(@RequestBody PersonaEntity funcion) {
+            Boolean b = false;
+            for (int i=0;i<person.obtener().size() ;i++) {
+                if (person.obtener().get(i).getCedula().equals(funcion.getCedula())){
+                    b = true;
+                }
+            }
+          if (b == true){
+              return "no se puede guardar cedulas repetidas ";
+          }else {
+            boolean ok = this.person.guardar(funcion);
+            if(ok){
+                return "se ha guardado correctamente";
+            }
+            else{
+                return "No se pudo ingresar los datos, verifique el numero de cedula";
+            }
+          }
+        }
+
         @DeleteMapping(path ="/{id}")
         public String eliminarperson(@PathVariable("id") Long id){
             boolean ok = this.person.eliminar(id);

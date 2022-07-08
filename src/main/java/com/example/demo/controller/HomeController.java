@@ -21,4 +21,8 @@ public class HomeController {
         model.addAttribute("titulo", "si ves esto puedes ser feliz");
         return "inicio";
     }
+    @GetMapping("/login")
+    public String gologin(Model model){
+        return "iniciar-sesion";
+    }
 }

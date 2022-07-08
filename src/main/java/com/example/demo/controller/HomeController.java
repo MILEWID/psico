@@ -37,4 +37,9 @@ public class HomeController {
      public String goAdminMenu(Model model){
          return "administradorMenu";
      }
+     
+     @GetMapping("/signup")
+     public String gosignup(Model model){
+         return "sign-up";
+     }
 }

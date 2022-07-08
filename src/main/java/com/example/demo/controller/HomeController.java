@@ -25,4 +25,9 @@ public class HomeController {
     public String gologin(Model model){
         return "iniciar-sesion";
     }
+    
+     @GetMapping("/citas")
+    public String gocitas(Model model){
+        return "citas-medicas";
+    }
 }

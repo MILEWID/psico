@@ -25,4 +25,8 @@ public class HomeController {
     public String gologin(Model model){
         return "iniciar-sesion";
     }
+    @GetMapping("/adminMenu")
+    public String goAdminMenu(Model model){
+        return "administradorMenu";
+    }
 }

@@ -26,8 +26,13 @@ public class HomeController {
         return "iniciar-sesion";
     }
     
-     @GetMapping("/citas")
+    @GetMapping("/citas")
     public String gocitas(Model model){
         return "citas-medicas";
+    }
+    
+    @GetMapping("/paciente")
+    public String goPaciente(Model model){
+        return "landing";
     }
 }

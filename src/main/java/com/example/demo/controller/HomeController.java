@@ -19,7 +19,7 @@ public class HomeController {
     @GetMapping("/")
     public String goHome(Model model){
         model.addAttribute("titulo", "si ves esto puedes ser feliz");
-        return "inicio";
+        return "landing";
     }
     @GetMapping("/login")
     public String gologin(Model model){
@@ -31,8 +31,4 @@ public class HomeController {
         return "citas-medicas";
     }
     
-    @GetMapping("/paciente")
-    public String goPaciente(Model model){
-        return "landing";
-    }
 }

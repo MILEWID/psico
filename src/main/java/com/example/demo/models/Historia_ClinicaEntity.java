@@ -39,9 +39,6 @@ public class Historia_ClinicaEntity {
 	@OneToMany(mappedBy = "historiaclini")
     private List<Historia_EnfermedadEntity> idHistoriaEnfermedad;
     
-    @OneToMany(mappedBy = "historiaclin")
-    private List<CitaEntity> cita;
-    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
     private PersonaEntity idPersona;
@@ -112,15 +109,7 @@ public class Historia_ClinicaEntity {
     public void setIdHistoriaEnfermedad(List<Historia_EnfermedadEntity> idHistoriaEnfermedad) {
         this.idHistoriaEnfermedad = idHistoriaEnfermedad;
     }
-
-    public List<CitaEntity> getCita() {
-        return cita;
-    }
-
-    public void setCita(List<CitaEntity> cita) {
-        this.cita = cita;
-    }
-
+    
     public PersonaEntity getIdPersona() {
         return idPersona;
     }

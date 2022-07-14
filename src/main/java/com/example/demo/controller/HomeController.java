@@ -4,9 +4,14 @@
  */
 package com.example.demo.controller;
 
+import com.example.demo.models.CitaEntity;
+import com.example.demo.service.CitaService;
+import com.example.demo.service.Historia_SocialService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -15,11 +20,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
+    	@Autowired
+    CitaService hs ;
     
     @GetMapping("/")
     public String goHome(Model model){
         model.addAttribute("titulo", "si ves esto puedes ser feliz");
-        return "inicio";
+        return "landing";
     }
     @GetMapping("/login")
     public String gologin(Model model){
@@ -27,10 +34,13 @@ public class HomeController {
     }
 
     
-     @GetMapping("/citas")
+    //citas 
+    @GetMapping("/citas")
     public String gocitas(Model model){
+            model.addAttribute("citas", hs.obtenerCita());
         return "citas-medicas";
     }
+<<<<<<< HEAD
      
 
      @GetMapping("/adminMenu")
@@ -42,4 +52,13 @@ public class HomeController {
      public String gosignup(Model model){
          return "sign-up";
      }
+=======
+    @GetMapping("/deletecita")
+	public String deleteEmployee(@RequestParam Long idcita) {
+		hs.eliminarCita(idcita);
+		return "redirect:/citas";
+	}
+ 
+    
+>>>>>>> df23c2011018b44e6eb1a882554a1f6bcc03a31d
 }

@@ -1,10 +1,16 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.sql.Date;
+import java.util.List;
 import javax.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 
-@Table(name="cita")
+@Table(name="cita",uniqueConstraints={
+    @UniqueConstraint(columnNames = {"createDate", "hora"})
+} )
 
 public class CitaEntity {
 	
@@ -14,44 +20,52 @@ public class CitaEntity {
 	
 	private Long idCita;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="idHorario", referencedColumnName="idHorario")
-	private HorarioEntity idHorario;
+       
 	
 	@ManyToOne
 	@JoinColumn(name="idPersona")
 	private PersonaEntity idPersona;
+        
+        	
 	
-	@ManyToOne
-	@JoinColumn(name="idHistoriaClinica")
-	private Historia_ClinicaEntity historiaclin;
+ @JsonFormat(pattern="yyyy-MM-dd")
+    private Date createDate;
 	
+    private String hora;
+
 	public Long getIdCita() {
 		return idCita;
 	}
 	public void setIdCita(Long idCita) {
 		this.idCita = idCita;
 	}
-	public HorarioEntity getIdHorario() {
-		return idHorario;
-	}
-	public void setIdHorario(HorarioEntity idHorario) {
-		this.idHorario = idHorario;
-	}
-	
-	public Historia_ClinicaEntity getHistoriaclin() {
-		return historiaclin;
-	}
-	public void setHistoriaclin(Historia_ClinicaEntity historiaclin) {
-		this.historiaclin = historiaclin;
-	}
+
+
+        
 	public PersonaEntity getIdPersona() {
 		return idPersona;
 	}
 	public void setIdPersona(PersonaEntity idPersona) {
 		this.idPersona = idPersona;
 	}
-	
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+
 	
 	
 

@@ -50,9 +50,6 @@ public class PersonaEntity {
     @OneToMany(mappedBy="idPersona")
     private List<CitaEntity> cita;
     
-    @OneToMany(mappedBy="idPersona")
-	private List<HorarioEntity> idHorario; 
-
     @ManyToOne
     @JoinColumn(name = "idTipoUsuario")
     private TipoUsuarioEntity idTipoUsuario;

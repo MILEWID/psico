@@ -27,16 +27,13 @@ public class HorarioEntity {
 	
 	private Long idHorario;
 	
-	@OneToOne(mappedBy="idHorario")
-	private CitaEntity idCita;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createDate;
+          @ManyToOne
+          @JoinColumn(name = "idCita")
+          private CitaEntity idCita;
+	
 
-	@ManyToOne
-	@JoinColumn(name="idPersona")
-	private PersonaEntity idPersona; 
+
 
 	private String estado;
 	public Long getIdHorario() {
@@ -45,20 +42,17 @@ public class HorarioEntity {
 	public void setIdHorario(Long idHorario) {
 		this.idHorario = idHorario;
 	}
-	
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
 
-	public PersonaEntity getIdPersona() {
-		return idPersona;
-	}
-	public void setIdPersona(PersonaEntity idPersona) {
-		this.idPersona = idPersona;
-	}
+ 
+    public CitaEntity getIdCita() {
+        return idCita;
+    }
+
+    public void setIdCita(CitaEntity idCita) {
+        this.idCita = idCita;
+    }
+
+
 	public String getEstado() {
 		return estado;
 	}

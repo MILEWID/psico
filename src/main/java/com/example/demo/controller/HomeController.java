@@ -62,4 +62,8 @@ public class HomeController {
         return "cliente";
     } 
  
+        @GetMapping("/historiaPaciente")
+	public String goHistoriaPaciente(Model model){
+        return "vistaHistoriaPaciente";
+    } 
 }

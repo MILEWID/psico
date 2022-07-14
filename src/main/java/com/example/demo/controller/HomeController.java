@@ -30,4 +30,9 @@ public class HomeController {
     public String gocitas(Model model){
         return "citas-medicas";
     }
+     
+     @GetMapping("/historiasclinicas")
+     public String gohclinicas(Model model){
+         return "historias-clinicas";
+     }
 }

@@ -23,6 +23,11 @@ import com.example.demo.service.PersonaService;
 import com.example.demo.models.Historia_ClinicaEntity;
 import com.example.demo.service.Historia_ClinicaService;
 import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+import static org.springframework.jdbc.core.JdbcOperationsExtensionsKt.query;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import org.apache.commons.lang.StringUtils;
 
 /**
  *
@@ -108,8 +113,8 @@ public class HomeController {
     } 
         
     @GetMapping("/deleteHistoria")
-    public String deleteHistoria(@RequestParam Long id_historia_clinica){
-        h.eliminarHistoriaClinica(id_historia_clinica);
+    public String deleteHistoria(@RequestParam Long id){
+        h.eliminarHistoriaClinica(id);
 	return "redirect:/vistaHistoriasMedico";
     }
 }

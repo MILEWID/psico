@@ -131,22 +131,26 @@
     <table class="table">
       <thead>
         <tr>
+          <td>Paciente</td>
           <td>Alergia</td>
           <td>Conflicto</td>
           <td>Referencia</td>
           <td>Transtorno</td>
+          <td>Estado</td>
           <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
         <tr th:each="hi : ${h}">
+          <td><span th:text="${hi.idPersona}"> </span></td>  
           <td><span th:text="${hi.alergia}"> </span></td>
           <td><span th:text="${hi.conflicto}"> </span></td>
           <td><span th:text="${hi.referencia}"> </span></td>
            <td><span th:text="${hi.transtorno}"> </span></td>
+           <td><span th:text="${hi.estado}"> </span></td>
           <td style="max-width: 100px;">
             <button type="button" class="btn btn-warning">Editar</button>
-           <a th:href="@{/deletecita(idcita=${cita.idCita})}"> eliminar</a>
+          <!--<a th:href="@{/deleteHistoria(id=${hi.id_historia_clinica})}"> Eliminar</a>-->
           </td>
         </tr>
     </table>

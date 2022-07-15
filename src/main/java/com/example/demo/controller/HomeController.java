@@ -8,6 +8,7 @@ import com.example.demo.models.CitaEntity;
 import com.example.demo.repository.CitaRepository;
 import com.example.demo.service.CitaService;
 import com.example.demo.service.Historia_SocialService;
+import com.example.demo.service.PersonaService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
     	@Autowired
     CitaService hs ;
+    PersonaService ps;
     
     @GetMapping("/")
     public String goHome(Model model){
@@ -38,10 +40,15 @@ public class HomeController {
         return "iniciar-sesion";
     }
     
-    //citas 
+    //citas
+    
+    
+
+    
     @GetMapping("/citas")
     public String gocitas(Model model){
             model.addAttribute("citas", hs.obtenerCita());
+            model.addAttribute("persona", ps.obtener());
         return "citas-medicas";
     } 
 
@@ -74,7 +81,7 @@ public class HomeController {
          return "redirect:/citas";
      }
         
-
+     
     
     @GetMapping("/cliente")
 	public String goCliente(Model model){

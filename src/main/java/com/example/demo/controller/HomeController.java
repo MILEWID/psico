@@ -39,7 +39,6 @@ import org.apache.commons.lang.StringUtils;
 public class HomeController {
     @Autowired
     CitaService hs ;
-    PersonaService ps;
     
     @Autowired
     Historia_ClinicaService h;
@@ -69,7 +68,6 @@ public class HomeController {
     @GetMapping("/citas")
     public String gocitas(Model model){
             model.addAttribute("citas", hs.obtenerCita());
-            model.addAttribute("persona", ps.obtener());
         return "citas-medicas";
     } 
 

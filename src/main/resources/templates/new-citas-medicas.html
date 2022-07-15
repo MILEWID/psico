@@ -112,7 +112,8 @@
                         <a class="nav-link" href="#portfolio">Historias Clinicas</a>
                     </li>
                 </ul>
-                <a href="/login" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-brand ms-lg-3">Cerrar Sesión</a>
+                <a href="/login" 
+                   class="btn btn-brand ms-lg-3">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
@@ -123,10 +124,13 @@
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0">
-
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-                                    <form  th:action="@{/addcita}" th:object="${citaa}" method="POST">
+                                    <form th:action="@{/addcita}" th:object="${citaa}" method="POST">
 
                                         <h2>AGENDAR CITA</h2>
                                         <label for="exampleInputPassword1" class="form-label">Hora:</label>
@@ -142,14 +146,17 @@
                                             <option value="17:00">17:00</option>
                                             <option value="18:00">18:00</option>
                                         </select>
-                                        <label for="exampleInputPassword1"  class="form-label">Fecha:</label>
-                                        <input id="startDate" th:field="*{createDate}" required class="form-control" type="date" />
-                                          <select  class="form-select" required>
-                                            <option th:each="persona : ${persona}" th:value="${persona.idPersona}" th:text="${persona.cedula}"></option>
-
+                                        <label for="exampleInputPassword1" class="form-label">Fecha:</label>
+                                        <input id="startDate" th:field="*{createDate}" required class="form-control"
+                                               type="date" />
+                                        <label for="exampleInputPassword1" class="form-label">Paciente:</label>
+                                        <select th:field="*{idPersona}" class="form-select " id="selectPacientes" required>
                                         </select>
-                                        <input type="submit" class="btn btn-primary" >Guardar</input>
-                                      
+                                        <input type="submit" class="btn btn-primary m-3"></input>
+                                        <a href="/citas" class="btn btn-warning m-3">
+                                            Cancelar
+                                        </a>
+
                                     </form>
 
 
@@ -161,7 +168,30 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+        async function getUsuarios() {
 
+        try {
+        const selectPacientes = document.getElementById("selectPacientes");
+        const request = await fetch("http://localhost:8080/persona");
+        const pacientes = await request.json();
+        const fragment = document.createDocumentFragment();
+        pacientes.forEach(paciente => {
+        const op = document.createElement("OPTION");
+        op.setAttribute("value",paciente.idPersona)
+        //op.value = paciente.idPersona;
+        op.textContent = paciente.cedula
+        fragment.appendChild(op);
+        });
+        selectPacientes.appendChild(fragment);
+        console.log(pacientes);
+        } catch (error) {
+        console.error(error);
+        }
+        }
+
+        getUsuarios();
+    </script>
 
 
 

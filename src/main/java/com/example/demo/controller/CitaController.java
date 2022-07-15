@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.models.CitaEntity;
@@ -51,5 +52,23 @@ public class CitaController {
 		}else {
 			return "La cita no existe";
 		}
+	}
+	
+	@GetMapping(path="/cita/editar/{id}")
+	public String mostrarFormularioEditar(@PathVariable Long id, Model citaEntity) {
+		citaEntity.addAttribute("cita", cita.obtenerCitaMedicaPorId(id));
+		return "editar_cita";
+	}
+	
+	@PostMapping("/citas/{id}")
+	public String actualizarCita(@PathVariable Long id, @ModelAttribute("cita")CitaService cita, Model CitaEntity) {
+		CitaEntity citaExistente = cita.obtenerCitaMedicaPorId(id);
+		citaExistente.setIdCita(id);
+		//citaExistente.setIdPersona(cita.getIdPersona());
+		//citaExistente.setCreateDate(cita.getCreateDate());
+		//citaExistente.setHora(cita.getHora());
+				
+		cita.actualizarCita(citaExistente);
+		return "redirect:/citas";
 	}
 }

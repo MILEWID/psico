@@ -43,5 +43,14 @@ public class CitaService {
 			return true;
 		}
 	}
+	
+	public CitaEntity obtenerCitaMedicaPorId(Long id) {
+		return cita.findById(id).get();
+	}
+	
+	public CitaEntity actualizarCita(CitaEntity citas) {
+		return cita.save(citas);
+	}
+	
 
 }

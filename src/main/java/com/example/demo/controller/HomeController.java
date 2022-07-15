@@ -27,8 +27,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import static org.springframework.jdbc.core.JdbcOperationsExtensionsKt.query;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import org.apache.commons.lang.StringUtils;
 
 /**
  *

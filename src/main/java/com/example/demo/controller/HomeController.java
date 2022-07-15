@@ -5,12 +5,17 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.CitaEntity;
+import com.example.demo.repository.CitaRepository;
 import com.example.demo.service.CitaService;
 import com.example.demo.service.Historia_SocialService;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -32,7 +37,6 @@ public class HomeController {
     public String gologin(Model model){
         return "iniciar-sesion";
     }
-
     
     //citas 
     @GetMapping("/citas")
@@ -40,25 +44,25 @@ public class HomeController {
             model.addAttribute("citas", hs.obtenerCita());
         return "citas-medicas";
     }
-<<<<<<< HEAD
-     
-
-     @GetMapping("/adminMenu")
-     public String goAdminMenu(Model model){
-         return "administradorMenu";
-     }
-     
-     @GetMapping("/signup")
-     public String gosignup(Model model){
-         return "sign-up";
-     }
-=======
     @GetMapping("/deletecita")
-	public String deleteEmployee(@RequestParam Long idcita) {
+	public String deletecita(@RequestParam Long idcita) {
 		hs.eliminarCita(idcita);
 		return "redirect:/citas";
 	}
- 
+        
+    @GetMapping("/addcita")
+    public String addcita(Model model) {
+        CitaEntity cita = new  CitaEntity();
+        model.addAttribute("citaa",cita);
+        return "new-citas-medicas";
+    }
     
->>>>>>> df23c2011018b44e6eb1a882554a1f6bcc03a31d
+     @PostMapping("/addcita")
+     public String guardar(@ModelAttribute("citaa") CitaEntity cita) {
+         hs.guardarCita(cita);
+         return "redirect:/citas";
+     }
+        
+
+    
 }

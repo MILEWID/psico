@@ -43,7 +43,18 @@ public class HomeController {
     public String gocitas(Model model){
             model.addAttribute("citas", hs.obtenerCita());
         return "citas-medicas";
-    }
+    } 
+
+     @GetMapping("/adminMenu")
+     public String goAdminMenu(Model model){
+         return "administradorMenu";
+     }
+     
+     @GetMapping("/signup")
+     public String gosignup(Model model){
+         return "sign-up";
+     }
+
     @GetMapping("/deletecita")
 	public String deletecita(@RequestParam Long idcita) {
 		hs.eliminarCita(idcita);
@@ -65,4 +76,13 @@ public class HomeController {
         
 
     
+    @GetMapping("/cliente")
+	public String goCliente(Model model){
+        return "cliente";
+    } 
+ 
+        @GetMapping("/historiaPaciente")
+	public String goHistoriaPaciente(Model model){
+        return "vistaHistoriaPaciente";
+    } 
 }

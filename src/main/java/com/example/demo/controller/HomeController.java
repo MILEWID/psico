@@ -7,6 +7,7 @@ package com.example.demo.controller;
 import com.example.demo.models.CitaEntity;
 import com.example.demo.repository.CitaRepository;
 import com.example.demo.service.CitaService;
+import com.example.demo.service.Historia_ClinicaService;
 import com.example.demo.service.Historia_SocialService;
 import com.example.demo.service.PersonaService;
 import javax.validation.Valid;
@@ -18,6 +19,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.example.demo.models.PersonaEntity;
+import com.example.demo.service.PersonaService;
+import com.example.demo.models.Historia_ClinicaEntity;
+import com.example.demo.service.Historia_ClinicaService;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+import static org.springframework.jdbc.core.JdbcOperationsExtensionsKt.query;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import org.apache.commons.lang.StringUtils;
 
 /**
  *
@@ -26,9 +37,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
-    	@Autowired
+    @Autowired
     CitaService hs ;
     PersonaService ps;
+    
+    @Autowired
+    Historia_ClinicaService h;
     
     @GetMapping("/")
     public String goHome(Model model){
@@ -40,11 +54,18 @@ public class HomeController {
         return "iniciar-sesion";
     }
     
-    //citas
+    @Autowired
+    private Historia_ClinicaService listaHistoria;
     
+    @GetMapping("/vista")
+    public String goHistoria(Model model){
+        //List<Historia_ClinicaEntity> listahistoria = listaHistoria.obtenerHistoriaClinica();
+        //model.addAttribute("lista", listaHistoria);
+        model.addAttribute("h", h.obtenerHistoriaClinica());
+        return "vistaHistoriasMedico";
+    }
     
-
-    
+    //citas 
     @GetMapping("/citas")
     public String gocitas(Model model){
             model.addAttribute("citas", hs.obtenerCita());
@@ -85,6 +106,7 @@ public class HomeController {
     
     @GetMapping("/cliente")
 	public String goCliente(Model model){
+           //model.addAttribute("persona", person.obtenerPorId(Long.parseLong("1")));
         return "cliente";
     } 
  
@@ -92,4 +114,10 @@ public class HomeController {
 	public String goHistoriaPaciente(Model model){
         return "vistaHistoriaPaciente";
     } 
+        
+    @GetMapping("/deleteHistoria")
+    public String deleteHistoria(@RequestParam Long id){
+        h.eliminarHistoriaClinica(id);
+	return "redirect:/vistaHistoriasMedico";
+    }
 }

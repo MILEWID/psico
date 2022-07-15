@@ -41,6 +41,9 @@ public class HomeController {
     @Autowired
     Historia_ClinicaService h;
     
+    @Autowired
+    PersonaService per;
+    
     @GetMapping("/")
     public String goHome(Model model){
         model.addAttribute("titulo", "si ves esto puedes ser feliz");
@@ -98,8 +101,6 @@ public class HomeController {
          return "redirect:/citas";
      }
         
-     
-    
     @GetMapping("/cliente")
 	public String goCliente(Model model){
            //model.addAttribute("persona", person.obtenerPorId(Long.parseLong("1")));
@@ -116,4 +117,34 @@ public class HomeController {
         h.eliminarHistoriaClinica(id);
 	return "redirect:/vistaHistoriasMedico";
     }
+    
+    @GetMapping("/pacientes")
+    public String goPacientes(Model model){
+        model.addAttribute("per", per.obtener());
+        return "pac";
+    }
+    
+    @GetMapping("/doctor")
+	public String goDoctor(Model model){
+        return "vistaDoctorInicial";
+    } 
+        
+    @GetMapping("/deletePaciente")
+	public String deletePaciente(@RequestParam Long id) {
+            per.eliminar(id);
+            return "redirect:/pacientes";
+	}
+    
+    @GetMapping("/addPaciente")
+    public String addPaciente(Model model) {
+        PersonaEntity per = new  PersonaEntity();
+        model.addAttribute("perso",per);
+        return "ingresoPaciente";
+    }
+    
+    @PostMapping("/addPacientee")
+     public String guardarPaciente(@ModelAttribute("pacientee") PersonaEntity persona) {
+         per.guardar(persona);
+         return "redirect:/pacientes";
+     }
 }

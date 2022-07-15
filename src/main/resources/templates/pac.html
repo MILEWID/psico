@@ -101,18 +101,27 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Citas</a>
+                        <a class="nav-link" href="/addcita">Citas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Historias Clinicas</a>
+                        <a class="nav-link" href="/vista">Historias Clinicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Cerrar Sesion</a>
                     </li>
                 </ul>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-brand ms-lg-3">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
 
     <div class="col-10 container center">
+        
+        <div class="row my-2">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <a href="/addPaciente" type="button" class="btn btn-primary">Agregar Paciente</a>
+            </div>
+        </div>  
 
         <table class="table">
             <thead>
@@ -132,16 +141,11 @@
                     <td><span th:text="${p.genero}"> </span></td>
                     <td style="max-width: 100px;">
                         <button type="button" class="btn btn-warning">editar</button>
+                        <a class="btn btn-danger" th:href="@{/deletePaciente(id=${p.idPersona})}"> eliminar</a>
                         <!--<a class="btn btn-danger" th:href="@{/deletecita(idcita=${cita.idCita})}"> eliminar</a>-->
                     </td>
                 </tr>
-        </table>
-        <div class="row my-2">
-            <div class="col-10"></div>
-            <div class="col-2">
-                <a href="/addcita" type="button" class="btn btn-primary">Agregar cita</a>
-            </div>
-        </div>                   
+        </table>                 
     </div>
 </body>
 </html>

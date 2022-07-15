@@ -95,7 +95,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">OCUMEDIC<span class="dot">.</span></a>
+      <a class="navbar-brand" href="/">OCUMEDIC<span class="dot">.</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -150,6 +150,7 @@
            <td><span th:text="${hi.estado}"> </span></td>
           <td style="max-width: 100px;">
             <button type="button" class="btn btn-warning">Editar</button>
+            <a class="btn btn-danger" th:href="@{/deleteHistoria(id=${hi.idHistoriaClinica})}"> eliminar</a>
           <!--<a th:href="@{/deleteHistoria(id=${hi.id_historia_clinica})}"> Eliminar</a>-->
           </td>
         </tr>

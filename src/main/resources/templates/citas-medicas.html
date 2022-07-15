@@ -92,7 +92,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Ocumedic<span class="dot">.</span></a>
+            <a class="navbar-brand" href="/">Ocumedic<span class="dot">.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -101,10 +101,13 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Citas</a>
+                        <a class="nav-link" href="/citas">Citas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Historias Clinicas</a>
+                        <a class="nav-link" href="/vista">Historias Clinicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Cerrar Sesion</a>
                     </li>
                 </ul>
                 <a href="/login" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -126,7 +129,7 @@
                 </tr>
             </thead>
             <tbody id="bodyCitas">
-                <!-- <tr th:each="cita : ${citas}">
+                 <tr th:each="cita : ${citas}">
                     <td><span th:text="${cita.idCita}"> </span></td>
                     <td><span th:text="${cita.hora}"> </span></td>
                     <td><span th:text="${cita.createDate}"> </span></td>
@@ -135,7 +138,7 @@
                         <button type="button" class="btn btn-warning">editar</button>
                         <a class="btn btn-danger" th:href="@{/deletecita(idcita=${cita.idCita})}"> eliminar</a>
                     </td>
-                </tr> -->
+                </tr> 
         </table>
         <div class="row my-2">
             <div class="col-10"></div>

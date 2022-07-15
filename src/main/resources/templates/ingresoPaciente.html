@@ -111,9 +111,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/vista">Historias Clinicas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Cerrar Sesion</a>
+                    </li>
                 </ul>
-                <a href="/login" 
-                   class="btn btn-brand ms-lg-3">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
@@ -130,30 +131,32 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-                                    <form th:action="@{/addcita}" th:object="${citaa}" method="POST">
+                                    <form th:action="@{/addPacientee}" th:object="${perso}" method="POST">
 
-                                        <h2>EDITAR CITA</h2>
-                                        <label for="exampleInputPassword1" class="form-label">Hora:</label>
-                                        <select th:field="*{hora}" class="form-select" required>
-                                            <option value="7:00">7:00</option>
-                                            <option value="8:00">8:00</option>
-                                            <option value="9:00">9:00</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="11:00">11:00</option>
-                                            <option value="12:00">12:00</option>
-                                            <option value="15:00">15:00</option>
-                                            <option value="16:00">16:00</option>
-                                            <option value="17:00">17:00</option>
-                                            <option value="18:00">18:00</option>
-                                        </select>
-                                        <label for="exampleInputPassword1" class="form-label">Fecha:</label>
-                                        <input id="startDate" th:field="*{createDate}" required class="form-control"
-                                               type="date" />
-                                        <label for="exampleInputPassword1" class="form-label">Paciente:</label>
-                                        <select th:field="*{idPersona}" class="form-select " id="selectPacientes" required>
-                                        </select>
+                                        <h2>Registro de Paciente</h2>
+                                        <label for="exampleInputPassword1" class="form-label">Historia Clinica:</label>
+                                        <input class="form-control" th:field="*{idHistoriaClinica}" type="text" placeholder="Default input">
+                                        <label for="exampleInputPassword1" class="form-label">Cedula:</label>
+                                        <input class="form-control" th:field="*{cedula}" type="text"  maxlength="10" placeholder="Default input">
+                                        <label for="exampleInputPassword1" class="form-label">Genero:</label>
+                                        <select class="form-control" th:field="*{genero}" id="exampleFormControlSelect1">
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Otro">Otro</option>
+                                          </select>
+                                        <label for="exampleInputPassword1" class="form-label">Correo:</label>
+                                        <input type="email" th:field="*{correo}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <label for="exampleInputPassword1" class="form-label">Religion:</label>
+                                        <input class="form-control" th:field="*{religion}" type="text"  maxlength="100" placeholder="Default input">
+                                        <label for="exampleInputPassword1" class="form-label">Estado Civil:</label>
+                                        <select class="form-control" th:field="*{genero}" id="exampleFormControlSelect1">
+                                            <option value="Soltero">Soltero</option>
+                                            <option value="Casdo">Casado</option>
+                                            <option value="Viudo">Viudo</option>
+                                            <option value="Union Libre">Union Libre</option>
+                                          </select>
                                         <input type="submit" class="btn btn-primary m-3"></input>
-                                        <a href="/citas" class="btn btn-warning m-3">
+                                        <a href="/addPacientee" class="btn btn-warning m-3">
                                             Cancelar
                                         </a>
 

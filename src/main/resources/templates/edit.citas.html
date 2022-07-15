@@ -59,7 +59,7 @@
     .btn-brand:hover {
       background-color: var(--brand);
       border-color: var(--brand);
-      color: #fff;
+     color: #fff;
     }
 
     .form-control-custom label {
@@ -126,49 +126,14 @@
   </nav>
             
             
-            
-            
-            
-            
-             <div class="container">
+ <form  th:action="@{/addcita}" th:object="${citaa}" method="POST">
+             
+          
+                <label for="exampleInputPassword1" class="form-label">Hora</label>
+                <input type="text" th:field="*{hora}" class="form-control" placeholder="Digite la hora "> </input>
+                <input type="submit" class="btn btn-primary" >Guardar</input>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <td>Nro</td>
-          <td>Hora</td>
-          <td>Fecha</td>
-          <td>Persona</td>
-          <td>Acciones</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="cita : ${citas}">
-          <td><span th:text="${cita.idCita}"> </span></td>
-          <td><span th:text="${cita.hora}"> </span></td>
-          <td><span th:text="${cita.createDate}"> </span></td>
-           <td><span th:text="${cita.idPersona}"> </span></td>
-          <td style="max-width: 100px;">
-            <button type="button"  th:href="@{/citas/editar/{id}(id=${cita.idCita})}" class="btn btn-warning">editar</button>
-           <a th:href="@{/deletecita(idcita=${cita.idCita})}"> eliminar</a>
-          </td>
-        </tr>
-    </table>
-       <div class="row my-2">
-      <div class="col-10"></div>
-      <div class="col-2">
-        <button type="button" class="btn btn-primary" th:action="@{/addcita}">Agregar
-          cita</button>
-      </div>
-    </div>    
-                 
-
-  </div>
-            
-            
-            
-            
-            
+            </form>
           
 
 </body>

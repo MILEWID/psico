@@ -111,12 +111,6 @@ public class HomeController {
 	public String goHistoriaPaciente(Model model){
         return "vistaHistoriaPaciente";
     } 
-        
-    @GetMapping("/deleteHistoria")
-    public String deleteHistoria(@RequestParam Long id){
-        h.eliminarHistoriaClinica(id);
-	return "redirect:/vistaHistoriasMedico";
-    }
     
     @GetMapping("/pacientes")
     public String goPacientes(Model model){
@@ -134,6 +128,12 @@ public class HomeController {
             per.eliminar(id);
             return "redirect:/pacientes";
 	}
+    
+    @GetMapping("/deleteHistoria")
+    public String deleteHistoria(@RequestParam Long id) {
+        h.eliminarHistoriaClinica(id);
+        return "redirect:/vista";
+    }
     
     @GetMapping("/addPaciente")
     public String addPaciente(Model model) {
